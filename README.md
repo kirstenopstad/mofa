@@ -71,7 +71,8 @@ __User stories:__
 |Date |Time  | Note|
 --- | --- | ---|
 |2/17|8:32a | Setup documentation boilerplate (README.md & capstone-proposal)|
-|data11|data12|data13|
+|2/17|9:03a| Reasearch art musuem design features, start [Figma](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0) to brainstorm|
+|date|time|data13|
 
 ## Setup/Installation Requirements
 
