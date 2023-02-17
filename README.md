@@ -50,11 +50,17 @@ __User stories:__
 
 ## Process 
 <!-- ✅  -->
-1. Create component drawing
+1. ✅ Create component drawing
 [![Component Drawing](./src/img/component_diagram.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
-2. Establish Component Hierarchy:
+2. ✅ Establish Component Hierarchy:
     * App.js
-      * 
+      * Header.js
+      * PlanYourVisit.js
+      * ExhControl.js 
+        * ExhList.js - displays all art in all exhibitions
+        * ExhDetail.js - displays all art in one exhibition
+        * Artwork.js - displays a single artwork
+      * Footer.js
 3. Build Static Components
 4. Add State
   * Local State 
