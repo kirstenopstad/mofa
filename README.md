@@ -100,6 +100,7 @@ __User stories:__
 |2/17|11:18a| Add project MVP to capstone proposal, research tech for MVP & Stretch Goals|
 |2/17|11:50a| Complete capstone proposal |
 |2/17|1:31p| Update component diagram to reflect stretch goals|
+|2/17|2:06p| Add create-react-app boilerplate & file structure|
 <!-- |date|time|data13| -->
 
 ### Project Links
