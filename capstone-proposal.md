@@ -19,15 +19,20 @@ What tools, frameworks, libraries, APIs, modules and/or other resources (whateve
   * DALL•E 2 API
 
 If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
-1. Style front end to match design norms for reference musuems 
+1. Style front end to match design norms for reference museums 
 2. Handle user login & registration
   * Add functionality so users may only vote once per work
 3. Ensure responsive design functionality across devices
-4. Build means search for articles around DALL•E 2
-5. Add components to incorporate scarper-found articles to site
+4. Gather user feedback
+5. Incorporate user feedback
+6. Publish hosted site
+7. Implement CI/CD (continuous integration and continuous delivery) with github Actions
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
-  * [GNews API](https://gnews.io/) 
   * 
+  * [Firebase Authentication](https://firebase.google.com/docs/auth/)
+  * [GitHub Actions](https://docs.github.com/en/actions/quickstart)
 
 Is there anything else you'd like your instructor to know?
+
+I'd like this project to demonstrate front end and back end skills, incorporate my background in art & design, and at the very least, be a conversation portfolio piece.
