@@ -51,16 +51,21 @@ __User stories:__
 ## Process 
 <!-- ✅  -->
 1. ✅ Create component drawing
+
 [![Component Drawing](./src/img/component_diagram.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
+
 2. ✅ Establish Component Hierarchy:
-    * App.js
-      * Header.js
-      * PlanYourVisit.js
-      * ExhControl.js 
-        * ExhList.js - displays all art in all exhibitions
-        * ExhDetail.js - displays all art in one exhibition
-        * Artwork.js - displays a single artwork
-      * Footer.js
+    * ✅ App.js
+      * ✅ Header.js
+      * ✅ PlanVisit.js
+      * ✅ ExhControl.js 
+        * ✅ ExhList.js - displays all art in all exhibitions
+        * ✅ ExhDetail.js - displays all art in one exhibition
+        * ✅ Artwork.js - displays a single artwork
+      * ✅ Footer.js
+
+[![Wireframe Component Hierarchy](./src/img/wireframe.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
+
 3. Build Static Components
 4. Add State
   * Local State 
@@ -101,6 +106,7 @@ __User stories:__
 |2/17|11:50a| Complete capstone proposal |
 |2/17|1:31p| Update component diagram to reflect stretch goals|
 |2/17|2:06p| Add create-react-app boilerplate & file structure|
+|2/17|3:01p| Create wireframe to better understand component hierarchy |
 <!-- |date|time|data13| -->
 
 ### Project Links
