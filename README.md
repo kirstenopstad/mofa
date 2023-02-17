@@ -99,7 +99,8 @@ __User stories:__
 |2/17|10:36a| Listen to "How to Look at Art" & add sources section to README |
 |2/17|11:18a| Add project MVP to capstone proposal, research tech for MVP & Stretch Goals|
 |2/17|11:50a| Complete capstone proposal |
-|date|time|data13|
+|2/17|1:31p| Update component diagram to reflect stretch goals|
+<!-- |date|time|data13| -->
 
 ### Project Links
 * [Whiteboard](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0)
