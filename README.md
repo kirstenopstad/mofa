@@ -71,7 +71,8 @@ __User stories:__
 |Date |Time  | Note|
 --- | --- | ---|
 |2/17|8:32a | Setup documentation boilerplate (README.md & capstone-proposal)|
-|2/17|9:03a| Reasearch art musuem design features, start [Figma](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0) to brainstorm|
+|2/17|9:03a| Reasearch art musuem design features, start [whiteboard](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0) to brainstorm|
+|2/17|9:32a| Brainstorm "must dos" and "would love to dos" on [whiteboard](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0)|
 |date|time|data13|
 
 ## Setup/Installation Requirements
