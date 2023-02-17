@@ -75,6 +75,7 @@ __User stories:__
 |2/17|9:32a| Brainstorm "must dos" and "would love to dos" on [whiteboard](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0)|
 |2/17|10:01a| Add basic component diagram to README, sketch out initial API structure on whiteboard |
 |2/17|10:36a| Listen to "How to Look at Art" & add sources section to README |
+|2/17|11:18a| Add project MVP to capstone proposal, research tech for MVP & Stretch Goals |
 |date|time|data13|
 
 ### Project Links
