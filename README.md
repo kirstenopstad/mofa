@@ -60,8 +60,10 @@ __User stories:__
       * ✅ PlanVisit.js
       * ✅ ExhControl.js 
         * ✅ ExhList.js - displays all art in all exhibitions
+          * ✅ Exhibit.js
         * ✅ ExhDetail.js - displays all art in one exhibition
-        * ✅ Artwork.js - displays a single artwork
+          * ✅ Artwork.js
+        * ✅ ArtworkDetail.js 
       * ✅ Footer.js
 
 [![Wireframe Component Hierarchy](./src/img/wireframe.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
@@ -107,6 +109,7 @@ __User stories:__
 |2/17|1:31p| Update component diagram to reflect stretch goals|
 |2/17|2:06p| Add create-react-app boilerplate & file structure|
 |2/17|3:01p| Create wireframe to better understand component hierarchy |
+|2/17|4:15p| Add functional components and seedData |
 <!-- |date|time|data13| -->
 
 ### Project Links

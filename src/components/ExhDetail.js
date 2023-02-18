@@ -1,11 +1,13 @@
 import React from "react";
+import Artwork from "./Artwork";
 
 const ExhDetail = () => {
   return(
-    // add seed datat to display all artwork in a single given exhibition
-    // TODO: add logic to display all artwork or feature one
+    // add seed data 
+    // display all artwork in a single given exhibition
     <React.Fragment>
-      
+      <h2>Selected Exhibition</h2>
+      <Artwork />
     </React.Fragment>
   );
 }

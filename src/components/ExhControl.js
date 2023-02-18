@@ -1,4 +1,5 @@
 import React from "react";
+import ArtworkDetail from "./ArtworkDetail";
 import ExhDetail from "./ExhDetail";
 import ExhList from "./ExhList";
 
@@ -8,6 +9,7 @@ const ExhControl = () => {
     <React.Fragment>
       <ExhList />
       <ExhDetail />
+      <ArtworkDetail />
     </React.Fragment>
   );
 }
