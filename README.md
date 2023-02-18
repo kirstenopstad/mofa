@@ -110,6 +110,7 @@ __User stories:__
 |2/17|2:06p| Add create-react-app boilerplate & file structure|
 |2/17|3:01p| Create wireframe to better understand component hierarchy |
 |2/17|4:15p| Add functional components and seedData |
+|2/17|4:39p| Setup basic plumbing for redux store |
 <!-- |date|time|data13| -->
 
 ### Project Links
