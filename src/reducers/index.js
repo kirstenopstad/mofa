@@ -1,8 +1,9 @@
 // import reducers
-// import { combineReducers } from 'redux';
+import dummyReducer from './dummy_reducer'
+import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-  // keyInState: specificReducer,
+  exhibitions: dummyReducer,
   // e.g. postList: postListReducer,
 })
 

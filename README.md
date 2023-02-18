@@ -111,6 +111,7 @@ __User stories:__
 |2/17|3:01p| Create wireframe to better understand component hierarchy |
 |2/17|4:15p| Add functional components and seedData |
 |2/17|4:39p| Setup basic plumbing for redux store |
+|2/17|5:05p| Working on piping seedData to functional components using store |
 <!-- |date|time|data13| -->
 
 ### Project Links

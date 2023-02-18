@@ -1,4 +1,5 @@
 const ExhSeedData =  {
+  exhibitions: {
   // exhibition one
   // TODO: replace hard-coded numbers with UUIDs throughout
   1: {
@@ -84,5 +85,5 @@ const ExhSeedData =  {
       }
     }
   }
-
+}
 export default ExhSeedData;

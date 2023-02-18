@@ -20,9 +20,9 @@ class ExhControl extends React.Component {
     return(
       // TODO: add logic to display all exhibits or just one
       <React.Fragment>
-      <ExhList props={this.state}/>
-      <ExhDetail />
-      <ArtworkDetail />
+        <ExhList exhibitions={this.props.exhibitions}/>
+        <ExhDetail />
+        <ArtworkDetail />
     </React.Fragment>
     );
   }
@@ -32,13 +32,13 @@ class ExhControl extends React.Component {
 // Map to props!
 const mapStateToProps = state => {
   return {
-    // postList: state.postList,
+    exhibitions: state.exhibitions,
   }
 }
 
 // Proptypes!
 ExhControl.propTypes = {
-  // postList: PropTypes.object,
+  exhibitions: PropTypes.object,
 }
 
 // Connect wrapper
