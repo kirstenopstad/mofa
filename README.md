@@ -126,6 +126,7 @@ __User stories:__
 |2/24|8:05a| Update README to reflect big picture, roadmap and revised data organization |
 |2/24|9:00a| Refactor seedData to match new data org and update ExhList components |
 |2/24|9:23a| __Key Learning:__ DALLE•2 doesn't persist data, need to solve img storage |
+|2/24|10:08a| Regen and import img files to exhSeedData |
 <!-- |date|time|data13| -->
 
 ### Project Links
