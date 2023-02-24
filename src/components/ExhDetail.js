@@ -10,6 +10,7 @@ const ExhDetail = ({ exh, art, titles}) => {
 
   let selArtTitles = null;
 
+  
   return(
     // add seed data 
     // display all artwork in a single given exhibition
@@ -19,12 +20,7 @@ const ExhDetail = ({ exh, art, titles}) => {
       <h4>Ends {endDate}</h4>
       <p>{description}</p>
       {filteredArtwork.map((art) => 
-        <div>
-          {/* <img src={art.image} alt={art.prompt} className="exh-preview"/> */}
-          {selArtTitles = titles.filter(t => t.artworkId === art.id)}
-          {/* {console.log(selArtTitles)} */}
-          <Artwork selArt={art} selTitles={selArtTitles}/>
-        </div>
+          <Artwork selArt={art} titles={titles}/>
       )}
       <br />
     </React.Fragment>

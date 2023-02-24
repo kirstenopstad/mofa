@@ -1,8 +1,11 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 
-const Artwork = ({ selArt, selTitles}) => {
+const Artwork = ({ selArt, titles }) => {
   const { image, prompt, id } = selArt;
+
+  // shows titles connected to *this* artwork only
+  const selTitles = titles.filter(t => t.artworkId === id)
 
   let mostPopTitle = null;
   
@@ -14,30 +17,21 @@ const Artwork = ({ selArt, selTitles}) => {
     selTitles.forEach(title => {
       votesArray.push(title.votes);
     });
-    
-    console.log(`votesArray`);
-    console.log(votesArray);
-    
+        
     const mostVotes = Math.max(...votesArray);
-
-    console.log(`mostVotes`);
-    console.log(mostVotes);
     
     // get title(s) with most votes
     mostPopTitle = selTitles.filter(t => t.votes === mostVotes)[0]
   } else {
-    mostPopTitle = { title: "No titles have been submitted yet" }
+    mostPopTitle = { title: "No titles have been submitted yet." }
   }
-  
-  console.log(`mostPopTitle`);
-  console.log(mostPopTitle);
-  
+    
   return(
     <React.Fragment>
       <img src={image} alt={prompt} className="exh-preview"/>
       <p>{prompt}</p>
       {/* TODO: show most popular title here */}
-      <h4>{mostPopTitle.title} | Votes</h4>
+      <h4>{mostPopTitle.title}</h4>
     </React.Fragment>
   );
 }
