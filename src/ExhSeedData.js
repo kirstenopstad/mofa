@@ -56,14 +56,17 @@ const titles = [
   { artworkId: 1,
     title: `Fake Title Submission`,
     votes: 0,
+    id: 1,
   },
   { artworkId: 1,
     title: `Better Fake Title Submission`,
     votes: 2,
+    id: 2,
   },
   { artworkId: 1,
     title: `Middleing Fake Title Submission`,
     votes: 1,
+    id: 3,
   }
 ]
 export { exhibitions, artworks, titles };

@@ -12,6 +12,7 @@ const ExhControl = () => {
   const [titleList, setTitleList] = useState(titles);
   // TODO: update this so it's dynamically setting obj
   const [selectedExh, setSelectedExh] = useState(exhList[0]);
+  const [selectedArt, setSelectedArt] = useState(artList[0]);
 
 
   const handleSelectExhibition = (id) => {
@@ -21,12 +22,19 @@ const ExhControl = () => {
     setSelectedExh(selectedExh)
   } 
 
+  const handleSelectArtwork = (id) => {
+    // go find selection
+    const selectedArt = artList.filter(a => a.id === id);
+    // set selected
+    setSelectedArt(selectedArt)
+  } 
+
   return(
     // TODO: add logic to display all exhibits or just one
     <React.Fragment>
       <ExhList exh={exhList} art={artList} titles={titleList}/>
       <ExhDetail exh={selectedExh} art={artList} titles={titleList}/>
-      {/* <ArtworkDetail /> */}
+      <ArtworkDetail selectedArt={selectedArt} titles={titleList}/>
   </React.Fragment>
   );
 }
