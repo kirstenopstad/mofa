@@ -130,6 +130,7 @@ __User stories:__
 |2/24|11:30a| Route data to ExhList & ExhDetail components + disp mostPopVote func |
 |2/24|11:47a| Populate all ExhControl components with seedData |
 |2/24|1:39p| Add conditional rendering to ExhControl |
+|2/24|2:09p| Add bootstrap and basic styling |
 <!-- |date|time|data13| -->
 
 ### Project Links
