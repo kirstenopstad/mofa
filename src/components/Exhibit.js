@@ -16,7 +16,7 @@ const Exhibit = ({exhibit, artworks, titles}) => {
       <h4>Ends {endDate}</h4>
       <p>{description}</p>
       {filteredArtwork.map((art) =>
-        <img src={art.image} alt={art.prompt} className="exh-preview"/>
+        <img key={`exh-img-${art.id}`}src={art.image} alt={art.prompt} className="exh-preview"/>
       )}
       <br />
       {/* TODO: Conditional rendering, is clicked show ExhDetail */}

@@ -20,7 +20,7 @@ const ExhDetail = ({ exh, art, titles}) => {
       <h4>Ends {endDate}</h4>
       <p>{description}</p>
       {filteredArtwork.map((art) => 
-          <Artwork selArt={art} titles={titles}/>
+          <Artwork key={`artwork-${art.id}`} selArt={art} titles={titles}/>
       )}
       <br />
     </React.Fragment>
