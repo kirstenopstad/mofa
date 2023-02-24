@@ -11,6 +11,7 @@ const Footer = () => {
           <Nav.Link eventKey="link-1" disabled>FAQ</Nav.Link>
           <Nav.Link eventKey="link-2" disabled>Subscribe</Nav.Link>
         </Nav>
+        <p>Built by KO</p>
       </div>
     </React.Fragment>
   );

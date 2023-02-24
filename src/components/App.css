@@ -47,4 +47,22 @@
 
 .footer {
   background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: lightgray;
+}
+.footer p {
+  padding-right: 10px;
+}
+
+.plan-visit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.plan-visit p {
+  font-size: small;
 }
