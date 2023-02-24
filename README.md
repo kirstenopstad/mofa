@@ -124,6 +124,7 @@ __User stories:__
 |2/17|4:39p| Setup basic plumbing for redux store |
 |2/17|5:05p| Working on piping seedData to functional components using store |
 |2/24|8:05a| Update README to reflect big picture, roadmap and revised data organization |
+|2/24|9:00a| Refactor seedData to match new data org and update ExhList components |
 <!-- |date|time|data13| -->
 
 ### Project Links

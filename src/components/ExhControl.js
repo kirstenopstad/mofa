@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { connect } from 'react-redux';
 // import PropTypes from "prop-types";
 import ArtworkDetail from "./ArtworkDetail";
@@ -7,11 +7,12 @@ import ExhList from "./ExhList";
 import { exhibitions, artworks, titles } from './../ExhSeedData'
 
 const ExhControl = () => {
+  const [exhList, setExhList] = useState(exhibitions);
 
   return(
     // TODO: add logic to display all exhibits or just one
     <React.Fragment>
-      <ExhList exh={exhibitions} art={artworks} titles={titles}/>
+      <ExhList exh={exhList} art={artworks} titles={titles}/>
       {/* <ExhDetail />
       <ArtworkDetail /> */}
   </React.Fragment>

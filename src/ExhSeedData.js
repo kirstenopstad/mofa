@@ -5,7 +5,7 @@ const exhibitions = [
     description: `poker game three ways`,
     id: 1
   },
-  { exhTitle: `Almsost Expressionists`,
+  { exhTitle: `Almost Expressionists`,
     endDate: `soon`,
     description: `expressionist selifies`,
     id: 2
