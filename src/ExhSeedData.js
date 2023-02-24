@@ -1,19 +1,20 @@
+import klee from './img/gen_images/img-FsXiqDunN0DT8nH9W7MK07GP.png'
 
 const exhibitions = [
   { exhTitle: `Three of Four`,
     endDate: `soon`,
-    description: `poker game three ways`,
+    description: `A poker game three ways`,
     id: 1
   },
   { exhTitle: `Almost Expressionists`,
-    endDate: `soon`,
-    description: `expressionist selifies`,
+    endDate: `March 15`,
+    description: `Expressionist selifies`,
     id: 2
   },
 ]
 
 const artworks = [
-  { image: `https://oaidalleapiprodscus.blob.core.windows.net/private/org-IyCMwj0RWWvhDkV14UomDgos/user-9EsOmgI1HmI0SzBiND2o5SSU/img-QQ1U85GrUA2DTLF3soSjBWeP.png?st=2023-02-17T23%3A00%3A58Z&se=2023-02-18T01%3A00%3A58Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-02-17T19%3A32%3A56Z&ske=2023-02-18T19%3A32%3A56Z&sks=b&skv=2021-08-06&sig=3zwikTVCU0IRG9MDT5yGSz8AuVJHm7Ll0Ec55mcxM%2Bk%3D`,
+  { image: klee,
     prompt: `a poker game of fish, Paul Klee eqsue`,
     exhibitionId: 1,
     id: 1
@@ -24,7 +25,7 @@ const artworks = [
     id: 2
   },
   { image: `https://oaidalleapiprodscus.blob.core.windows.net/private/org-IyCMwj0RWWvhDkV14UomDgos/user-9EsOmgI1HmI0SzBiND2o5SSU/img-bjB31IjEIVkEkNZHFIKGj0cw.png?st=2023-02-17T23%3A03%3A53Z&se=2023-02-18T01%3A03%3A53Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-02-17T19%3A34%3A20Z&ske=2023-02-18T19%3A34%3A20Z&sks=b&skv=2021-08-06&sig=J6LXoZ4gzQhc4V6h1Qd2GKCuFd5UCCh2j/gVMfpNZfI%3D`,
-    prompt: `a poker game of fish, Wassily Kandinsky eqsue`,
+    prompt: `a poker game of fish, Kandinsky eqsue`,
     exhibitionId: 1,
     id: 3
   },

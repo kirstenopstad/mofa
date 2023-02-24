@@ -125,6 +125,7 @@ __User stories:__
 |2/17|5:05p| Working on piping seedData to functional components using store |
 |2/24|8:05a| Update README to reflect big picture, roadmap and revised data organization |
 |2/24|9:00a| Refactor seedData to match new data org and update ExhList components |
+|2/24|9:23a| __Key Learning:__ DALLE•2 doesn't persist data, need to solve img storage |
 <!-- |date|time|data13| -->
 
 ### Project Links

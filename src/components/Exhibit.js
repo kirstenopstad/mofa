@@ -10,6 +10,8 @@ const Exhibit = ({exhibit, artworks, titles}) => {
   return(
     <React.Fragment>
       <h3>{exhTitle}</h3>
+      <h4>Ends {endDate}</h4>
+      <p>{description}</p>
       {/* TODO: refactor so it only shows images connected to *this* exh */}
       {artworks.map((art) =>
         <img src={art.image} alt="prompt"/>
