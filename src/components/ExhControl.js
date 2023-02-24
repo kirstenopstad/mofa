@@ -52,6 +52,11 @@ const ExhControl = () => {
     setShowExhList(true)
   }
 
+  const handleTitleSubmit = (title) => {
+    // TODO: add title to db
+
+  }
+
   let content = null;
   if (showExhList) {
     content = <ExhList 
