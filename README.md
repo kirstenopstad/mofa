@@ -2,7 +2,7 @@
 
 #### By Kirsten Opstad
 
-#### A web app that consumes the OpenAI generative image API
+#### A web app that <!-- generates, --> displays and exhibitions of fake art
 
 <!-- #### [Check out the live site](https://kirstenopstad.github.io/local-business/)! -->
 
@@ -15,6 +15,7 @@
 * CSS
 * webpack
 * Node.js
+* Firebase
 
 ## Description
 
@@ -49,6 +50,7 @@ __User stories:__
 * Users may only vote once per AI-generated artwork
 
 ## Process 
+
 <!-- ✅  -->
 1. ✅ Create component drawing
 
@@ -72,7 +74,16 @@ __User stories:__
 4. Add State
   * Local State 
   * Shared State 
-5. Style to match inspiration
+5. Add Firebase to store data
+
+[Data Organization](./src/img/data_structure.png)
+
+6. Style to match inspiration
+
+### __Roadmap__
+![Roadmap](./src/img/roadmap.png)
+### __Big Picture__
+![Big Picture](./src/img/big_picture.png)
 
 <!-- [x] Screenshots
 
@@ -112,6 +123,7 @@ __User stories:__
 |2/17|4:15p| Add functional components and seedData |
 |2/17|4:39p| Setup basic plumbing for redux store |
 |2/17|5:05p| Working on piping seedData to functional components using store |
+|2/24|8:05a| Update README to reflect big picture, roadmap and revised data organization |
 <!-- |date|time|data13| -->
 
 ### Project Links
