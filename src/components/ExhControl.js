@@ -8,13 +8,25 @@ import { exhibitions, artworks, titles } from './../ExhSeedData'
 
 const ExhControl = () => {
   const [exhList, setExhList] = useState(exhibitions);
+  const [artList, setArtList] = useState(artworks);
+  const [titleList, setTitleList] = useState(titles);
+  // TODO: update this so it's dynamically setting obj
+  const [selectedExh, setSelectedExh] = useState(exhList[0]);
+
+
+  const handleSelectExhibition = (id) => {
+    // go find selection
+    const selectedExh = exhList.filter(e => e.id === id);
+    // set selected
+    setSelectedExh(selectedExh)
+  } 
 
   return(
     // TODO: add logic to display all exhibits or just one
     <React.Fragment>
-      <ExhList exh={exhList} art={artworks} titles={titles}/>
-      {/* <ExhDetail />
-      <ArtworkDetail /> */}
+      <ExhList exh={exhList} art={artList} titles={titleList}/>
+      <ExhDetail exh={selectedExh} art={artList} titles={titleList}/>
+      {/* <ArtworkDetail /> */}
   </React.Fragment>
   );
 }
