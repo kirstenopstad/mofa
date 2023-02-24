@@ -128,7 +128,7 @@ __User stories:__
 |2/24|9:23a| __Key Learning:__ DALLE•2 doesn't persist data, need to solve img storage |
 |2/24|10:08a| Regen and import img files to exhSeedData |
 |2/24|11:30a| Route data to ExhList & ExhDetail components + disp mostPopVote func |
-|2/24|11:47a| Popultate all ExhControl components with seedData |
+|2/24|11:47a| Populate all ExhControl components with seedData |
 <!-- |date|time|data13| -->
 
 ### Project Links
