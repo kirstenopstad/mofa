@@ -1,7 +1,8 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import closeIcon from './../img/icons/x-lg.svg'
 
-const ArtworkDetail = ({ selectedArt, titles }) => {
+const ArtworkDetail = ({ selectedArt, titles, onClose }) => {
   const { image, prompt, id } = selectedArt;
 
   // shows titles connected to *this* artwork only
@@ -30,6 +31,7 @@ const ArtworkDetail = ({ selectedArt, titles }) => {
 
   return(
     <React.Fragment>
+      <img onClick={() => onClose()} src={closeIcon}/>
       <h2>Selected Artwork</h2>
       <img src={image} alt="prompt" className="art-detail"/>
 
@@ -48,5 +50,9 @@ const ArtworkDetail = ({ selectedArt, titles }) => {
     </React.Fragment>
   );
 }
-
+ArtworkDetail.propTypes = {
+  selectedArt: PropTypes.object,
+  titles: PropTypes.array,
+  onClose: PropTypes.func
+}
 export default ArtworkDetail;

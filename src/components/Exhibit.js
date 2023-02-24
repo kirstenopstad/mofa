@@ -2,7 +2,7 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import Artwork from "./Artwork";
 
-const Exhibit = ({exhibit, artworks, titles}) => {
+const Exhibit = ({exhibit, artworks, whenExhDetailClicked}) => {
   const {exhTitle, endDate, description, id } = exhibit;
   
   // TODO: only display top three images per exh
@@ -20,7 +20,7 @@ const Exhibit = ({exhibit, artworks, titles}) => {
       )}
       <br />
       {/* TODO: Conditional rendering, is clicked show ExhDetail */}
-      <button>Exhibition Details</button>
+      <button onClick={() => whenExhDetailClicked(id)}>Exhibition Details</button>
     </React.Fragment>
   );
 }
@@ -28,6 +28,6 @@ const Exhibit = ({exhibit, artworks, titles}) => {
 Exhibit.propTypes = {
   exhibit: PropTypes.object,
   artworks: PropTypes.array,
-  titles: PropTypes.array,
+  whenExhDetailClicked: PropTypes.func,
 }
 export default Exhibit;

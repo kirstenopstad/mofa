@@ -1,7 +1,7 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 
-const Artwork = ({ selArt, titles }) => {
+const Artwork = ({ selArt, titles, whenArtworkClick }) => {
   const { image, prompt, id } = selArt;
 
   // shows titles connected to *this* artwork only
@@ -32,6 +32,7 @@ const Artwork = ({ selArt, titles }) => {
       <p>{prompt}</p>
       {/* TODO: show most popular title here */}
       <h4>{mostPopTitle.title}</h4>
+      <button onClick={() => whenArtworkClick(id)}>Artwork Detail</button>
     </React.Fragment>
   );
 }
@@ -39,6 +40,7 @@ const Artwork = ({ selArt, titles }) => {
 Artwork.propTypes = {
   art: PropTypes.object,
   titles: PropTypes.array,
+  whenArtworkClick: PropTypes.func
 }
 
 export default Artwork;
