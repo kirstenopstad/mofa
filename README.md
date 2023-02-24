@@ -131,6 +131,7 @@ __User stories:__
 |2/24|11:47a| Populate all ExhControl components with seedData |
 |2/24|1:39p| Add conditional rendering to ExhControl |
 |2/24|2:09p| Add bootstrap and basic styling |
+|2/24|3:03p| Work in progress: add Firebase/Firestore on feature branch |
 <!-- |date|time|data13| -->
 
 ### Project Links

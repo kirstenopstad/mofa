@@ -2,16 +2,15 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import closeIcon from './../img/icons/x-lg.svg'
 
-const ArtworkDetail = ({ selectedArt, titles, onClose }) => {
+const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit }) => {
   const { image, prompt, id } = selectedArt;
+  let error = null;
 
   // shows titles connected to *this* artwork only
   const selTitles = titles.filter(t => t.artworkId === id)
 
   // TODO: refactor to move mostPopVote function to helper, also appears in Artwork
-
   let mostPopTitle = null;
-  
   // if titles not null, then deconstruct & get most popular
   if (selTitles.length > 0) {
     
@@ -28,6 +27,28 @@ const ArtworkDetail = ({ selectedArt, titles, onClose }) => {
   } else {
     mostPopTitle = { title: "No titles have been submitted yet." }
   }
+  
+  const handleTitleSubmission = (e) => {
+    e.preventDefault();
+    // if valid value (str of at least one character)
+    if (validateTitle(e.target.answer.value)) {
+      onTitleSubmit({
+        artworkId: id,
+        title: e.target.answer.value,
+        votes: 1,
+      })
+    } else {
+      error = <p>Title must include at least one character.</p>
+    }
+  }
+
+  const validateTitle = (titleVal) => {
+    // if field is empty
+    if (titleVal.length < 0) {
+      return false
+    }
+  }
+  
 
   return(
     <React.Fragment>
@@ -42,7 +63,8 @@ const ArtworkDetail = ({ selectedArt, titles, onClose }) => {
           <li key={title.id}>{title.title} | {title.votes} votes</li>
         )}
       </ul>
-      <form>Add Title
+      <form onSubmit={handleTitleSubmission}>Add Title
+        {error}
         <input type="text" />
         <button type="submit">Submit</button>
       </form>
@@ -53,6 +75,7 @@ const ArtworkDetail = ({ selectedArt, titles, onClose }) => {
 ArtworkDetail.propTypes = {
   selectedArt: PropTypes.object,
   titles: PropTypes.array,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  onTitleSubmit: PropTypes.func
 }
 export default ArtworkDetail;
