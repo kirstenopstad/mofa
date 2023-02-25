@@ -137,6 +137,7 @@ __User stories:__
 |2/24|4:51p| Add user comment & store in firebase |
 |2/24|10:45a| Update roadmap & tagline in README |
 |2/24|11:43a| Add user upVote & downVote title functionality |
+|2/24|2:40p| Update component diagram and wireframe for authentication |
 <!-- |date|time|data13| -->
 ### Hour Totals
 |Date |Hours  | Note|
