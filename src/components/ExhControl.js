@@ -1,9 +1,10 @@
-import React, {useState} from "react";
-import { connect } from 'react-redux';
+import React, {useEffect, useState} from "react";
 // import PropTypes from "prop-types";
 import ArtworkDetail from "./ArtworkDetail";
 import ExhDetail from "./ExhDetail";
 import ExhList from "./ExhList";
+import { db } from './../firebase'
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
 import { exhibitions, artworks, titles } from './../ExhSeedData'
 
 const ExhControl = () => {
@@ -22,7 +23,31 @@ const ExhControl = () => {
   const [showExhDetail, setShowExhDetail] = useState(false);
   const [showArtworkDetail, setShowArtworkDetail] = useState(false);
 
+  // promise utilities
+  const [error, setError] = useState(null);
 
+  // Firebase comms
+  useEffect(() => {
+    const unSub = onSnapshot(
+      collection(db, "titles"),
+      (collectionSnapshot) => {
+        const results = [];
+        collectionSnapshot.forEach((doc) => {
+          results.push({
+            ...doc.data(),
+            id: doc.id
+          })
+        })
+        setTitleList(results);
+      },
+      (error) => {
+        setError(error.message);
+      }
+    );
+    return () => unSub();
+  }, []);
+
+  // select functionality
   const handleSelectExhibition = (id) => {
     // go find selection
     const selectedExh = exhList.filter(e => e.id === id)[0];
@@ -46,15 +71,18 @@ const ExhControl = () => {
     setShowExhList(false)
   } 
 
+  // close functionality
   const handleClose = () => {
     setShowArtworkDetail(false)
     setShowExhDetail(false)
     setShowExhList(true)
   }
 
-  const handleTitleSubmit = (title) => {
+  // add title functionality
+  const handleTitleSubmit = async (title) => {
     // TODO: add title to db
-
+    const titleCollectionRef = collection(db, "titles");
+    await addDoc(titleCollectionRef, title)
   }
 
   let content = null;
@@ -75,6 +103,7 @@ const ExhControl = () => {
     content = <ArtworkDetail 
                 selectedArt={selectedArt} 
                 titles={titleList}
+                onTitleSubmit={handleTitleSubmit}
                 onClose={handleClose}/>
   }
   return(

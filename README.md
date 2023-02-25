@@ -29,8 +29,8 @@ Recreate the user experience of visiting a art musuem website with completely AI
 The application should have the following functionality:
 
 __User stories:__
-* Users can view exhibition of AI-generated artwork as a gallery or individually
-* Users can add title/comment to AI-generated artwork
+* ✅ Users can view exhibition of AI-generated artwork as a gallery or individually
+* ✅ Users can add title/comment to AI-generated artwork
 * Users can  upvote/downvote titles/comments of AI-generated artwork
 
 Additionally, code will be reviewed for the following objectives:
@@ -57,24 +57,25 @@ __User stories:__
 [![Component Drawing](./src/img/component_diagram.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
 
 2. ✅ Establish Component Hierarchy:
-    * ✅ App.js
-      * ✅ Header.js
-      * ✅ PlanVisit.js
-      * ✅ ExhControl.js 
-        * ✅ ExhList.js - displays all art in all exhibitions
-          * ✅ Exhibit.js
-        * ✅ ExhDetail.js - displays all art in one exhibition
-          * ✅ Artwork.js
-        * ✅ ArtworkDetail.js 
-      * ✅ Footer.js
+    * App.js
+      * Header.js
+      * PlanVisit.js
+      * ExhControl.js 
+        * ExhList.js - displays all art in all exhibitions
+          * Exhibit.js
+        * ExhDetail.js - displays all art in one exhibition
+          * Artwork.js
+        * ArtworkDetail.js 
+      * Footer.js
 
 [![Wireframe Component Hierarchy](./src/img/wireframe.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
 
-3. Build Static Components
-4. Add State
-  * Local State 
+3. ✅ Build Static Components
+4. ✅ Add State
+  * Local State conditional rendering
   * Shared State 
-5. Add Firebase to store data
+5. ✅ Add Firebase to store data
+6. Add Authentication
 
 [Data Organization](./src/img/data_structure.png)
 
@@ -131,6 +132,8 @@ __User stories:__
 |2/24|11:47a| Populate all ExhControl components with seedData |
 |2/24|1:39p| Add conditional rendering to ExhControl |
 |2/24|2:09p| Add bootstrap and basic styling |
+|2/24|3:03p| Work in progress: add Firebase/Firestore on feature branch |
+|2/24|4:16p| Successfully link firebase to project |
 <!-- |date|time|data13| -->
 
 ### Project Links
