@@ -132,6 +132,7 @@ __User stories:__
 |2/24|1:39p| Add conditional rendering to ExhControl |
 |2/24|2:09p| Add bootstrap and basic styling |
 |2/24|3:03p| Work in progress: add Firebase/Firestore on feature branch |
+|2/24|4:16p| Successfully link firebase to project |
 <!-- |date|time|data13| -->
 
 ### Project Links
