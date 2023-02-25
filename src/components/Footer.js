@@ -1,8 +1,17 @@
 import React from "react";
 import Nav from 'react-bootstrap/Nav';
-
+import { auth } from './../firebase.js'
 
 const Footer = () => {
+  
+  let loginStatusText = null;
+
+  if (auth.currentUser == null) {
+    loginStatusText = `Login`
+  } else {
+    loginStatusText = `Logout`
+  }
+
   return(
     <React.Fragment>
       <div className="footer">
@@ -12,6 +21,10 @@ const Footer = () => {
           <Nav.Link eventKey="link-2" disabled>Subscribe</Nav.Link>
         </Nav>
         <p>Built by KO</p>
+        <Nav defaultActiveKey="/home" className="flex-column">
+          <Nav.Link>{loginStatusText}</Nav.Link>
+        </Nav>
+        
       </div>
     </React.Fragment>
   );
