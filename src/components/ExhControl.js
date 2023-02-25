@@ -4,7 +4,7 @@ import ArtworkDetail from "./ArtworkDetail";
 import ExhDetail from "./ExhDetail";
 import ExhList from "./ExhList";
 import { db } from './../firebase'
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import { collection, doc, addDoc, updateDoc, onSnapshot } from "firebase/firestore";
 import { exhibitions, artworks, titles } from './../ExhSeedData'
 
 const ExhControl = () => {
@@ -80,9 +80,15 @@ const ExhControl = () => {
 
   // add title functionality
   const handleTitleSubmit = async (title) => {
-    // TODO: add title to db
     const titleCollectionRef = collection(db, "titles");
     await addDoc(titleCollectionRef, title)
+  }
+  
+  // add title functionality
+  const handleTitleVote = async (titleToVoteOn) => {
+    const titleRef = doc(db, "titles", titleToVoteOn.id);
+    await updateDoc(titleRef, titleToVoteOn)
+    const newTitleRef = doc(db, "titles", titleToVoteOn.id);
   }
 
   let content = null;
@@ -104,6 +110,7 @@ const ExhControl = () => {
                 selectedArt={selectedArt} 
                 titles={titleList}
                 onTitleSubmit={handleTitleSubmit}
+                onVote={handleTitleVote}
                 onClose={handleClose}/>
   }
   return(

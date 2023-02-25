@@ -137,6 +137,13 @@ __User stories:__
 |2/24|4:51p| Add user comment & store in firebase |
 |2/24|10:45a| Update roadmap & tagline in README |
 <!-- |date|time|data13| -->
+### Hour Totals
+|Date |Hours  | Note|
+--- | --- | ---|
+|2/17|8 hrs| Project planning, research and basic component creation|
+|2/24|8 hrs| Added conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
+|2/25|4 hrs|data13|
+<!-- |date|hour|data13| -->
 
 ### Project Links
 * [Whiteboard](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0)

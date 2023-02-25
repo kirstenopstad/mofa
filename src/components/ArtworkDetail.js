@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import { PropTypes } from "prop-types";
 import closeIcon from './../img/icons/x-lg.svg'
+import upVoteIcon from './../img/icons/arrow-up.svg'
+import downVoteIcon from './../img/icons/arrow-down.svg'
 
-const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit }) => {
+const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [inputPlaceholder, setinputPlaceholder] = useState("Title");
   const { image, prompt, id } = selectedArt;
@@ -31,11 +33,8 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit }) => {
   
   const handleTitleSubmission = (e) => {
     e.preventDefault();
-    console.log(e.target.title.value)
-    console.log(e.target.title.value.length)
     // if valid value (str of at least one character)
     if (validateTitle(e.target.title.value)) {
-      console.log("success")
       onTitleSubmit({
         artworkId: id,
         title: e.target.title.value,
@@ -43,10 +42,16 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit }) => {
       })
       e.target.title.value = null;
     } else {
-      console.log("error")
       setErrorMessage("Title must include at least one character.")
     }
-    
+  }
+
+  const handleUpVote = (title) => {
+    // TODO: check if user has voted on this one
+    onVote({
+      ...title,
+      votes: title.votes + 1
+    })
   }
 
   const validateTitle = (titleVal) => {
@@ -68,7 +73,11 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit }) => {
         {errorMessage}
       <ul>
         {selTitles.map((title) =>
-          <li key={title.id}>{title.title} | {title.votes} votes</li>
+          <li key={title.id}>
+            {title.title} | {title.votes} votes  
+            <img onClick={() => handleUpVote(title)} src={upVoteIcon} alt="up vote"/>
+            {/* <img onClick={handleDownVote} src={downVoteIcon} alt="down vote"/> */}
+            </li>
         )}
       </ul>
       <form onSubmit={handleTitleSubmission}>Add Title
@@ -86,6 +95,7 @@ ArtworkDetail.propTypes = {
   selectedArt: PropTypes.object,
   titles: PropTypes.array,
   onClose: PropTypes.func,
-  onTitleSubmit: PropTypes.func
+  onTitleSubmit: PropTypes.func,
+  onVote: PropTypes.func
 }
 export default ArtworkDetail;
