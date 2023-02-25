@@ -31,7 +31,7 @@ The application should have the following functionality:
 __User stories:__
 * ✅ Users can view exhibition of AI-generated artwork as a gallery or individually
 * ✅ Users can add title/comment to AI-generated artwork
-* Users can  upvote/downvote titles/comments of AI-generated artwork
+* ✅ Users can  upvote/downvote titles/comments of AI-generated artwork
 
 Additionally, code will be reviewed for the following objectives:
 
@@ -136,13 +136,14 @@ __User stories:__
 |2/24|4:16p| Successfully link firebase to project |
 |2/24|4:51p| Add user comment & store in firebase |
 |2/24|10:45a| Update roadmap & tagline in README |
+|2/24|11:43a| Add user upVote & downVote title functionality |
 <!-- |date|time|data13| -->
 ### Hour Totals
 |Date |Hours  | Note|
 --- | --- | ---|
 |2/17|8 hrs| Project planning, research and basic component creation|
 |2/24|8 hrs| Added conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
-|2/25|4 hrs|data13|
+<!-- |2/25|4 hrs|data13| -->
 <!-- |date|hour|data13| -->
 
 ### Project Links
