@@ -2,7 +2,7 @@
 
 #### By Kirsten Opstad
 
-#### A web app that <!-- generates, --> displays and exhibitions of fake art
+#### A web app that <!-- generates, --> displays and exhibits fake art
 
 <!-- #### [Check out the live site](https://kirstenopstad.github.io/local-business/)! -->
 
@@ -126,7 +126,7 @@ __User stories:__
 |2/17|5:05p| Working on piping seedData to functional components using store |
 |2/24|8:05a| Update README to reflect big picture, roadmap and revised data organization |
 |2/24|9:00a| Refactor seedData to match new data org and update ExhList components |
-|2/24|9:23a| __Key Learning:__ DALLE•2 doesn't persist data, need to solve img storage |
+|2/24|9:23a| __Important:__ DALLE•2 doesn't persist data, need to solve img storage |
 |2/24|10:08a| Regen and import img files to exhSeedData |
 |2/24|11:30a| Route data to ExhList & ExhDetail components + disp mostPopVote func |
 |2/24|11:47a| Populate all ExhControl components with seedData |
@@ -134,6 +134,8 @@ __User stories:__
 |2/24|2:09p| Add bootstrap and basic styling |
 |2/24|3:03p| Work in progress: add Firebase/Firestore on feature branch |
 |2/24|4:16p| Successfully link firebase to project |
+|2/24|4:51p| Add user comment & store in firebase |
+|2/24|10:45a| Update roadmap & tagline in README |
 <!-- |date|time|data13| -->
 
 ### Project Links
