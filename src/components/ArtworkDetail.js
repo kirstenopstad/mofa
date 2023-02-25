@@ -53,6 +53,14 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
       votes: title.votes + 1
     })
   }
+  
+  const handleDownVote = (title) => {
+    // TODO: check if user has voted on this one
+    onVote({
+      ...title,
+      votes: title.votes - 1 
+    })
+  }
 
   const validateTitle = (titleVal) => {
     // if field is empty
@@ -76,7 +84,7 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
           <li key={title.id}>
             {title.title} | {title.votes} votes  
             <img onClick={() => handleUpVote(title)} src={upVoteIcon} alt="up vote"/>
-            {/* <img onClick={handleDownVote} src={downVoteIcon} alt="down vote"/> */}
+            <img onClick={() => handleDownVote(title)} src={downVoteIcon} alt="down vote"/>
             </li>
         )}
       </ul>

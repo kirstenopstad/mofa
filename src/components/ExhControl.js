@@ -84,11 +84,10 @@ const ExhControl = () => {
     await addDoc(titleCollectionRef, title)
   }
   
-  // add title functionality
+  // add vote on title functionality
   const handleTitleVote = async (titleToVoteOn) => {
     const titleRef = doc(db, "titles", titleToVoteOn.id);
     await updateDoc(titleRef, titleToVoteOn)
-    const newTitleRef = doc(db, "titles", titleToVoteOn.id);
   }
 
   let content = null;
