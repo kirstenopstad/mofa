@@ -68,19 +68,22 @@ __User stories:__
         * ArtworkDetail.js 
       * Footer.js
 
-[![Wireframe Component Hierarchy](./src/img/wireframe.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
+[![Wireframe Component Hierarchy](./src/img/wireframe0.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
 
 3. ✅ Build Static Components
 4. ✅ Add State
   * Local State conditional rendering
   * Shared State 
 5. ✅ Add Firebase to store data
+
+![Data Organization](./src/img/data_structure.png)
+
 6. ✅ Add Authentication
 7. ✅ Add Authorization (title / vote)
+8. Style to match mockup
 
-[Data Organization](./src/img/data_structure.png)
+![Wireframe Mockup](./src/img/wireframe.png)
 
-6. Style to match inspiration
 
 ### __Roadmap__
 ![Roadmap](./src/img/roadmap.png)
@@ -144,7 +147,7 @@ __User stories:__
 |2/25|2:40p| Update component diagram and wireframe for authentication |
 |2/25|3:40p| Add user registration, login & log out functionality |
 |2/25|4:52p| Add conditional rendering to LoginControl, add authorization to title/vote functionality |
-|2/25|5:00p| __Meets MVP Reqiurement__|
+|2/25|5:00p| __Meets MVP Reqiurements__|
 <!-- |date|time|data13| -->
 
 ### Hour Totals
