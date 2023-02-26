@@ -1,32 +1,30 @@
 import React from "react";
 import Nav from 'react-bootstrap/Nav';
 import { auth } from './../firebase.js'
+import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({loggedIn}) => {
   
-  let loginStatusText = null;
-
-  if (auth.currentUser == null) {
-    loginStatusText = `Login`
-  } else {
-    loginStatusText = `Logout`
-  }
-
-  return(
-    <React.Fragment>
-      <div className="footer">
+  const footerNav = 
         <Nav defaultActiveKey="/home" className="flex-column">
           <Nav.Link href="/home" disabled>About MOFA</Nav.Link>
           <Nav.Link eventKey="link-1" disabled>FAQ</Nav.Link>
           <Nav.Link eventKey="link-2" disabled>Subscribe</Nav.Link>
         </Nav>
-        <p>Built by KO</p>
-        <Nav defaultActiveKey="/home" className="flex-column">
-          <Nav.Link>{loginStatusText}</Nav.Link>
-        </Nav>
-        
-      </div>
-    </React.Fragment>
+
+  const footerBrand = <p>Built by KO</p>
+  
+  // TODO: make this say "logout" if user is logged in
+  return(
+    <div className="footer">
+    {footerNav}
+    {footerBrand}
+    <Nav defaultActiveKey="/home" className="flex-column">
+      <Nav.Item>
+        <Link to="/log-in">Login / Logout</Link>
+      </Nav.Item>
+    </Nav>
+    </div>
   );
 }
 
