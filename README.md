@@ -46,7 +46,7 @@ Additionally, code will be reviewed for the following objectives:
 ### Further Exploration (Stretch Goals)
 
 __User stories:__
-* Users can register and login
+* ✅ Users can register and login
 * Users may only vote once per AI-generated artwork
 
 ## Process 
@@ -75,7 +75,8 @@ __User stories:__
   * Local State conditional rendering
   * Shared State 
 5. ✅ Add Firebase to store data
-6. Add Authentication
+6. ✅ Add Authentication
+7. ✅ Add Authorization (title / vote)
 
 [Data Organization](./src/img/data_structure.png)
 
@@ -93,19 +94,22 @@ __User stories:__
 <!-- [Link to operational site](http://www.kirstenopstad.github.com/<REPOSITORY NAME>) -->
 
 ### __Goals__
-1. Meet MVP (Minimum Viable Product)
-2. Implement at least one stretch goal
+1. ✅ Meet MVP (Minimum Viable Product)
+2. ✅ Implement at least one stretch goal
 3. Create thorough documentation of process
 
 ### __Stretch Goals__
 1. Style front end to match design norms for reference museums 
-2. Handle user login & registration
+2. ✅ Handle user login & registration
   * Add functionality so users may only vote once per work
 3. Ensure responsive design functionality across devices
 4. Gather user feedback
 5. Incorporate user feedback
 6. Publish hosted site
 7. Implement CI/CD (continuous integration and continuous delivery) with github Actions
+8. Create functionality automatically generate new prompts for DALLE•2
+9. Use app to call DALL•E API
+10. Use Firebase to save .png from URL and store in Google cloud
 
 ### Research & Planning Log
 
@@ -139,6 +143,7 @@ __User stories:__
 |2/24|11:43a| Add user upVote & downVote title functionality |
 |2/24|2:40p| Update component diagram and wireframe for authentication |
 |2/24|3:40p| Add user registration, login & log out functionality |
+|2/24|4:52p| Add conditional rendering to LoginControl, add authorization to title/vote functionality |
 <!-- |date|time|data13| -->
 ### Hour Totals
 |Date |Hours  | Note|
