@@ -139,18 +139,20 @@ __User stories:__
 |2/24|3:03p| Work in progress: add Firebase/Firestore on feature branch |
 |2/24|4:16p| Successfully link firebase to project |
 |2/24|4:51p| Add user comment & store in firebase |
-|2/24|10:45a| Update roadmap & tagline in README |
-|2/24|11:43a| Add user upVote & downVote title functionality |
-|2/24|2:40p| Update component diagram and wireframe for authentication |
-|2/24|3:40p| Add user registration, login & log out functionality |
-|2/24|4:52p| Add conditional rendering to LoginControl, add authorization to title/vote functionality |
+|2/25|10:45a| Update roadmap & tagline in README |
+|2/25|11:43a| Add user upVote & downVote title functionality |
+|2/25|2:40p| Update component diagram and wireframe for authentication |
+|2/25|3:40p| Add user registration, login & log out functionality |
+|2/25|4:52p| Add conditional rendering to LoginControl, add authorization to title/vote functionality |
+|2/25|5:00p| __Meets MVP Reqiurement__|
 <!-- |date|time|data13| -->
+
 ### Hour Totals
 |Date |Hours  | Note|
 --- | --- | ---|
 |2/17|8 hrs| Project planning, research and basic component creation|
-|2/24|8 hrs| Added conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
-<!-- |2/25|4 hrs|data13| -->
+|2/24|8 hrs| Add conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
+|2/25|5 hrs| Add voting, authentication & authorization for add title + vote |
 <!-- |date|hour|data13| -->
 
 ### Project Links
