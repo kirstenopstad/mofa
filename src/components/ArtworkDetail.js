@@ -1,11 +1,15 @@
 import React, {useState} from "react";
 import { PropTypes } from "prop-types";
+import {auth} from './../firebase.js'
 import closeIcon from './../img/icons/x-lg.svg'
 import upVoteIcon from './../img/icons/arrow-up.svg'
 import downVoteIcon from './../img/icons/arrow-down.svg'
+import { Link } from "react-router-dom";
+
 
 const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) => {
   const [errorMessage, setErrorMessage] = useState(null);
+  const [errorLink, setErrorLink] = useState(null);
   const [inputPlaceholder, setinputPlaceholder] = useState("Title");
   const { image, prompt, id } = selectedArt;
 
@@ -33,33 +37,49 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
   
   const handleTitleSubmission = (e) => {
     e.preventDefault();
-    // if valid value (str of at least one character)
-    if (validateTitle(e.target.title.value)) {
-      onTitleSubmit({
-        artworkId: id,
-        title: e.target.title.value,
-        votes: 1,
-      })
-      e.target.title.value = null;
+    // if not signed in, return error
+    if (auth.currentUser == null) {
+      setErrorMessage("You must be logged in to submit a title.")
+      setErrorLink(<Link to="/log-in">Login</Link>)
     } else {
-      setErrorMessage("Title must include at least one character.")
+      // if valid value (str of at least one character)
+      if (validateTitle(e.target.title.value)) {
+        onTitleSubmit({
+          artworkId: id,
+          title: e.target.title.value,
+          votes: 1,
+        })
+        e.target.title.value = null;
+      } else {
+        setErrorMessage("Title must include at least one character.")
+      }
     }
   }
 
   const handleUpVote = (title) => {
     // TODO: check if user has voted on this one
-    onVote({
-      ...title,
-      votes: title.votes + 1
-    })
+    if (auth.currentUser == null) {
+      setErrorMessage("You must be logged in to vote.")
+      setErrorLink(<Link to="/log-in">Login</Link>)
+    } else {
+      onVote({
+        ...title,
+        votes: title.votes + 1
+      })
+    }
   }
   
   const handleDownVote = (title) => {
     // TODO: check if user has voted on this one
-    onVote({
-      ...title,
-      votes: title.votes - 1 
-    })
+    if (auth.currentUser == null) {
+      setErrorMessage("You must be logged in to vote.")
+      setErrorLink(<Link to="/log-in">Login</Link>)
+    } else {
+      onVote({
+        ...title,
+        votes: title.votes - 1 
+      })
+    }
   }
 
   const validateTitle = (titleVal) => {
@@ -78,7 +98,6 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
       <img src={image} alt="prompt" className="art-detail"/>
 
       <h4>{mostPopTitle.title}</h4>
-        {errorMessage}
       <ul>
         {selTitles.map((title) =>
           <li key={title.id}>
@@ -88,6 +107,7 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
             </li>
         )}
       </ul>
+      {errorMessage} {errorLink}
       <form onSubmit={handleTitleSubmission}>Add Title
         <input 
           type="text" 

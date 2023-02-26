@@ -138,6 +138,7 @@ __User stories:__
 |2/24|10:45a| Update roadmap & tagline in README |
 |2/24|11:43a| Add user upVote & downVote title functionality |
 |2/24|2:40p| Update component diagram and wireframe for authentication |
+|2/24|3:40p| Add user registration, login & log out functionality |
 <!-- |date|time|data13| -->
 ### Hour Totals
 |Date |Hours  | Note|
