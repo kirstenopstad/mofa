@@ -46,7 +46,7 @@ Additionally, code will be reviewed for the following objectives:
 ### Further Exploration (Stretch Goals)
 
 __User stories:__
-* Users can register and login
+* ✅ Users can register and login
 * Users may only vote once per AI-generated artwork
 
 ## Process 
@@ -68,18 +68,22 @@ __User stories:__
         * ArtworkDetail.js 
       * Footer.js
 
-[![Wireframe Component Hierarchy](./src/img/wireframe.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
+[![Wireframe Component Hierarchy](./src/img/wireframe0.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
 
 3. ✅ Build Static Components
 4. ✅ Add State
   * Local State conditional rendering
   * Shared State 
 5. ✅ Add Firebase to store data
-6. Add Authentication
 
-[Data Organization](./src/img/data_structure.png)
+![Data Organization](./src/img/data_structure.png)
 
-6. Style to match inspiration
+6. ✅ Add Authentication
+7. ✅ Add Authorization (title / vote)
+8. Style to match mockup
+
+![Wireframe Mockup](./src/img/wireframe.png)
+
 
 ### __Roadmap__
 ![Roadmap](./src/img/roadmap.png)
@@ -93,19 +97,22 @@ __User stories:__
 <!-- [Link to operational site](http://www.kirstenopstad.github.com/<REPOSITORY NAME>) -->
 
 ### __Goals__
-1. Meet MVP (Minimum Viable Product)
-2. Implement at least one stretch goal
+1. ✅ Meet MVP (Minimum Viable Product)
+2. ✅ Implement at least one stretch goal
 3. Create thorough documentation of process
 
 ### __Stretch Goals__
 1. Style front end to match design norms for reference museums 
-2. Handle user login & registration
+2. ✅ Handle user login & registration
   * Add functionality so users may only vote once per work
 3. Ensure responsive design functionality across devices
 4. Gather user feedback
 5. Incorporate user feedback
 6. Publish hosted site
 7. Implement CI/CD (continuous integration and continuous delivery) with github Actions
+8. Create functionality automatically generate new prompts for DALLE•2
+9. Use app to call DALL•E API
+10. Use Firebase to save .png from URL and store in Google cloud
 
 ### Research & Planning Log
 
@@ -135,17 +142,20 @@ __User stories:__
 |2/24|3:03p| Work in progress: add Firebase/Firestore on feature branch |
 |2/24|4:16p| Successfully link firebase to project |
 |2/24|4:51p| Add user comment & store in firebase |
-|2/24|10:45a| Update roadmap & tagline in README |
-|2/24|11:43a| Add user upVote & downVote title functionality |
-|2/24|2:40p| Update component diagram and wireframe for authentication |
-|2/24|3:40p| Add user registration, login & log out functionality |
+|2/25|10:45a| Update roadmap & tagline in README |
+|2/25|11:43a| Add user upVote & downVote title functionality |
+|2/25|2:40p| Update component diagram and wireframe for authentication |
+|2/25|3:40p| Add user registration, login & log out functionality |
+|2/25|4:52p| Add conditional rendering to LoginControl, add authorization to title/vote functionality |
+|2/25|5:00p| __Meets MVP Reqiurements__|
 <!-- |date|time|data13| -->
+
 ### Hour Totals
 |Date |Hours  | Note|
 --- | --- | ---|
 |2/17|8 hrs| Project planning, research and basic component creation|
-|2/24|8 hrs| Added conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
-<!-- |2/25|4 hrs|data13| -->
+|2/24|8 hrs| Add conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
+|2/25|5 hrs| Add voting, authentication & authorization for add title + vote |
 <!-- |date|hour|data13| -->
 
 ### Project Links
