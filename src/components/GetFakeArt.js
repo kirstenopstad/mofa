@@ -7,7 +7,7 @@ import { getStorage, ref, uploadBytes } from "firebase/storage";
 const GetFakeArt = () => {
   const [error, setError]= useState(null);
   const [isLoaded, setIsLoaded]= useState(null);
-  const [fakeArtURL, setFakeArtURL]= useState(null);
+  const [fakeArtURL, setFakeArtURL]= useState("");
   const [fakeArtRefFilename, setFakeArtRefFilename]= useState(null);
   const [fakeArtFile, setFakeArtFile]= useState(null);
 
@@ -16,34 +16,31 @@ const GetFakeArt = () => {
   const getArt = async () => {
     try {
       let res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.REACT_APP_NYT_API_KEY}`)
-      .then((res) => {
-          setIsLoaded(true)
-          setFakeArtURL(res.data.results[0].multimedia[1].url)
-          console.log(`completed getArt, fakeArtURL = ${fakeArtURL}`)
-        })
-        setFakeArtURL(res.data.results[0].multimedia[1].url)
-    } catch (error) {
-      setError(`Problem: ${error.message}`)
+      const resURL = res.data.results[0].multimedia[1].url;
+      setIsLoaded(true);
+      setFakeArtURL(resURL);
+      } catch (error) {
+        setError(`Problem: ${error.message}`)
+      }
     }
-  }
-
-  // BUILD REF FILENAME
-
-  // get '.jpeg'
-  const getFileType = (url) => {
-    // console.log("getting file type")
-    // console.log(`url: ${url}`)
-    // get index of period
-    const dotIndex = url.lastIndexOf('.')
-    // get last three characters of file
-    const filetype = url.slice(dotIndex, url.length)
-    // return filetype (i.e. '.jpg')
-    return filetype
-  }
-  
-  // build file name
+    
+    // BUILD REF FILENAME
+    
+    // get '.jpeg'
+    const getFileType = (url) => {
+      // console.log("getting file type")
+      // console.log(`url: ${url}`)
+      // get index of period
+      const dotIndex = url.lastIndexOf('.')
+      // get last three characters of file
+      const filetype = url.slice(dotIndex, url.length)
+      // return filetype (i.e. '.jpg')
+      return filetype
+    }
+    
+    // build file name
   const makeDbRefName = () => {
-    // console.log("getting ref file name")
+    console.log("getting ref file name")
     // console.log(`fileURL: ${url}`)
     // get ext
     const ext = getFileType(fakeArtURL);
@@ -53,52 +50,59 @@ const GetFakeArt = () => {
     // return refFileName
   }
   
-  const getImageFile = (url) => {
-    fetch(url)
+  const getImageFile = () => {
+    fetch(fakeArtURL)
     // get result and turn it into a blob
     .then((res) => {
       res.blob()
       .then((blob) => {
-            // console.log("getting file")
-            const fileExt = getFileType(url)
+        console.log("getting file")
+            const fileExt = getFileType(fakeArtURL)
             const file = new File([blob], fileExt, {type: blob.type})
             setFakeArtFile(file)
           })
-      })
-  }
-
-  const uploadImageToDb = (dbRefFile, file) => {
-    
-    // create root ref
-    const storage = getStorage();
-
-    // create db ref for incoming file
-    const imageRef = ref(storage, dbRefFile)
-
-    // upload file to db
-    uploadBytes(imageRef, file)
-      .then((snapshot) => {
-        // console.log('it worked! go check firebase!')
-      })
-  }
-  // run this once, on load to get one fake artwork
-  useEffect(() => {
-    getArt()
-  }, [])
-  
-  // run whenever URL is updated, get image file & make db Ref
-  useEffect(() => {
-    console.log('made it to makeDbRefName')
-    makeDbRefName()
-    console.log('made it to getImageFile')
-    getImageFile()
-  }, [fakeArtURL])
+        })
+      }
+      
+      const uploadImageToDb = (dbRefFile, file) => {
+        
+        // create root ref
+        const storage = getStorage();
+        
+        // create db ref for incoming file
+        const imageRef = ref(storage, dbRefFile)
+        
+        // upload file to db
+        uploadBytes(imageRef, file)
+        .then((snapshot) => {
+          // console.log('it worked! go check firebase!')
+        })
+      }
+      
+      // run this once on load
+      useEffect(() => {
+        // get fake artwork URL
+        getArt()
+        .then(() => {
+          console.log(fakeArtURL);
+          // get fake artwork File & generate refFileName
+          makeDbRefName()
+          getImageFile()
+        })
+        // .finally(() => {
+        //   console.log(fakeArtFile);
+        //   console.log(fakeArtRefFilename);
+        //   // upload image to db
+        //   uploadImageToDb(fakeArtRefFilename, fakeArtFile)
+        // })
+      }, [])
+      
   
   // run when file is updated
-  useEffect(() => {
-    // const refName = makeDbRefName(fakeArtURL)
-    uploadImageToDb(fakeArtRefFilename, fakeArtFile)
-  }, [fakeArtFile])
+  // useEffect(() => {
+  //   // const refName = makeDbRefName(fakeArtURL)
+  //   uploadImageToDb(fakeArtRefFilename, fakeArtFile)
+  // }, [fakeArtFile])
 
   // display to check
   if (error) {
