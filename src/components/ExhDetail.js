@@ -23,9 +23,8 @@ const ExhDetail = ({ exh, art, titles, onArtworkDetailClick, onClose}) => {
       <h4><i>Ends {endDate}</i></h4>
       <p>{description}</p>
       {filteredArtwork.map((art) => 
-      <Row className="exh">
+      <Row className="exh" key={`artwork-${art.id}`} >
           <Artwork 
-          key={`artwork-${art.id}`} 
           selArt={art} 
           titles={titles}
           whenArtworkClick={onArtworkDetailClick}/>

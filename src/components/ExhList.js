@@ -9,13 +9,12 @@ const ExhList = ({exh, art, titles, onExhDetailClick}) => {
     <React.Fragment>
       <h2>All Exhibitions</h2>
       {exh.map((singleExh) => 
-        <div key={`exh-${singleExh.id}`}>
           <Exhibit 
+            key={`exh-${singleExh.id}`}
             exhibit={singleExh} 
             artworks={art} 
             titles={titles} 
             whenExhDetailClicked={onExhDetailClick} />
-        </div>
       )}
     </React.Fragment>
   );
