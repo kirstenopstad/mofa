@@ -54,6 +54,9 @@
 
 .exh-preview {
   width: 100%;
+  /* TODO: make art appear rectangular */
+  /* margin: 0 -20% 0 -20%; */
+  /* background-color: gainsboro; */
 }
 
 .footer {
