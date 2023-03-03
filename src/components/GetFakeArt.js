@@ -6,9 +6,10 @@ import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 const GetFakeArt = () => {
   const [error, setError]= useState(null);
-  const [isLoaded, setIsLoaded]= useState(null);
+  const [isLoaded, setIsLoaded]= useState(false);
+  const [isUploaded, setIsUploaded]= useState(false);
   const [fakeArtURL, setFakeArtURL]= useState("");
-  const [fakeArtRefFilename, setFakeArtRefFilename]= useState(null);
+  const [fakeArtRef, setFakeArtRef]= useState(null);
   const [fakeArtFile, setFakeArtFile]= useState(null);
 
   // axios getArt call using async / await
@@ -18,91 +19,88 @@ const GetFakeArt = () => {
       let res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.REACT_APP_NYT_API_KEY}`)
       const resURL = res.data.results[0].multimedia[1].url;
       setIsLoaded(true);
+      // // get fake art URL
       setFakeArtURL(resURL);
+      const filename = makeDbRefName('test')
+      console.log(filename)
+      const filetype = getFileType(resURL)
+      console.log(filetype)
+      const refName = addDbRefExt(filename, filetype)
+      console.log(refName)
+      // setFakeArtRef(refName)
+      const file = getImageFile(resURL, refName)
+
+      
       } catch (error) {
         setError(`Problem: ${error.message}`)
       }
     }
     
-    // BUILD REF FILENAME
+  // BUILD REF FILENAME
+  // get '.jpeg'
+  const getFileType = (url) => {
+    console.log("getting file type")
+    // get index of period
+    const dotIndex = url.lastIndexOf('.')
+    // get last three characters of file
+    const filetype = url.slice(dotIndex, url.length)
+    // return filetype (i.e. '.jpg')
+    // setFakeArtFiletype(filetype)
+    return filetype
+  }
     
-    // get '.jpeg'
-    const getFileType = (url) => {
-      // console.log("getting file type")
-      // console.log(`url: ${url}`)
-      // get index of period
-      const dotIndex = url.lastIndexOf('.')
-      // get last three characters of file
-      const filetype = url.slice(dotIndex, url.length)
-      // return filetype (i.e. '.jpg')
-      return filetype
-    }
-    
-    // build file name
-  const makeDbRefName = () => {
-    console.log("getting ref file name")
-    // console.log(`fileURL: ${url}`)
-    // get ext
-    const ext = getFileType(fakeArtURL);
+  // build file name without extension
+  const makeDbRefName = (imageName) => {
+    console.log("buidling ref file name")
     // build ref file name w/ test
-    const refFileName = 'fake-art/' + 'test' + ext
-    setFakeArtRefFilename(refFileName)
-    // return refFileName
+    const filename = 'fake-art/' + imageName
+    // console.log(refFilename)
+    // setFakeArtRefFilename(refFilename)
+    return filename
+  }
+
+  // add extension
+  const addDbRefExt = (filename, filetype) => {
+    return filename + filetype
   }
   
-  const getImageFile = () => {
-    fetch(fakeArtURL)
-    // get result and turn it into a blob
+  const getImageFile = (url, filename) => {
+    console.log("getting file")
+    console.log(url)
+    console.log(filename)
+    // get result URL
+    fetch(url)
     .then((res) => {
+      // turn it into a blob
       res.blob()
       .then((blob) => {
-        console.log("getting file")
-            const fileExt = getFileType(fakeArtURL)
-            const file = new File([blob], fileExt, {type: blob.type})
-            setFakeArtFile(file)
+        // turn it into a file
+        const file = new File([blob], filename, {type: blob.type})
+        console.log(file)
+        // setFakeArtFile(file)
+        uploadImageToDb(filename, file)
+        // return file 
           })
         })
       }
       
-      const uploadImageToDb = (dbRefFile, file) => {
-        
-        // create root ref
-        const storage = getStorage();
-        
-        // create db ref for incoming file
-        const imageRef = ref(storage, dbRefFile)
-        
-        // upload file to db
-        uploadBytes(imageRef, file)
-        .then((snapshot) => {
-          // console.log('it worked! go check firebase!')
-        })
-      }
+  const uploadImageToDb = (refName, file) => {
+      // create root ref
+      const storage = getStorage();
+      // create db ref for incoming file
+      const imageRef = ref(storage, refName)
+      // upload file to db
+      uploadBytes(imageRef, file)
+      .then((snapshot) => {
+        console.log('it worked! go check firebase!')
+      })
+    }
       
       // run this once on load
       useEffect(() => {
-        // get fake artwork URL
-        getArt()
-        .then(() => {
-          console.log(fakeArtURL);
-          // get fake artwork File & generate refFileName
-          makeDbRefName()
-          getImageFile()
-        })
-        // .finally(() => {
-        //   console.log(fakeArtFile);
-        //   console.log(fakeArtRefFilename);
-        //   // upload image to db
-        //   uploadImageToDb(fakeArtRefFilename, fakeArtFile)
-        // })
+        // get fake artwork & add to db
+        getArt();
       }, [])
-      
-  
-  // run when file is updated
-  // useEffect(() => {
-  //   // const refName = makeDbRefName(fakeArtURL)
-  //   uploadImageToDb(fakeArtRefFilename, fakeArtFile)
-  // }, [fakeArtFile])
 
   // display to check
   if (error) {
@@ -113,10 +111,7 @@ const GetFakeArt = () => {
     return (
       <div>
         <img src={fakeArtURL} />
-        <p>{fakeArtURL}</p>
-        <p>{fakeArtURL} | {typeof(fakeArtURL)}</p>
-        {/* <p>{console.log(fakeArtFile)} | {typeof(fakeArtFile)}</p> */}
-        {/* <p>{console.log(fakeArtURL)} | {typeof(fakeArtRefFilename)}</p> */}
+        <p>This image has now been added to the datebase.</p>
       </div>
     )
   }
