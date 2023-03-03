@@ -41,8 +41,19 @@
   width: 100vw;
 }
 
+.exh {
+  margin-bottom: 15px
+}
+
+.exh-didactic {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+}
+
 .exh-preview {
-  width: 200px;
+  width: 100%;
 }
 
 .footer {
