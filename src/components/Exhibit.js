@@ -18,7 +18,6 @@ const Exhibit = ({exhibit, artworks, whenExhDetailClicked}) => {
   const featuredArtwork = filteredArtwork[0]
 
   return(
-    <React.Fragment>
       <Container>
       <Row className="exh">
         <Col sm={8}>
@@ -36,7 +35,6 @@ const Exhibit = ({exhibit, artworks, whenExhDetailClicked}) => {
 
       </Row>
       </Container>
-    </React.Fragment>
   );
 }
 
