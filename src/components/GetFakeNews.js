@@ -4,52 +4,31 @@ import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 // calls the DALLE•2 API and adds one artwork to db
 
-const GetFakeArt = () => {
+const GetFakeNews = () => {
   const [error, setError]= useState(null);
   const [isLoaded, setIsLoaded]= useState(false);
+  const [isUploaded, setIsUploaded]= useState(false);
   const [fakeArtURL, setFakeArtURL]= useState("");
-
-  // axios config for OpenAI
-  const config = {
-    headers: { 
-      Authorization: `Bearer ${process.env.REACT_APP_DALLE2_BEARER_TOKEN}`,
-      AccessControlAllowOrigin: true,
-   }
-    };
-    
-  const bodyParameters = {
-      // "prompt": "painting of a diner at night in the style of Renoir",
-      "prompt": "painting of a diner at night in the style of Renoir",
-      "n": 1,
-      "size": "1024x1024"
-  };
+  const [fakeArtRef, setFakeArtRef]= useState(null);
+  const [fakeArtFile, setFakeArtFile]= useState(null);
 
   // axios getArt call using async / await
   // TODO: update with art, using NYT to save calls
   const getArt = async () => {
     try {
-      console.log(config)
-      console.log(bodyParameters)
-      console.log(bodyParameters)
-      let res = await axios.post( 
-        'https://api.openai.com/v1/images/generations',
-        bodyParameters,
-        config
-        )
-      console.log(res)
-      console.log(res.data)
-      const resURL =  res.data.data[0].url;
+      let res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${process.env.REACT_APP_NYT_API_KEY}`)
+      const resURL = res.data.results[0].multimedia[1].url;
       setIsLoaded(true);
       // // get fake art URL
       setFakeArtURL(resURL);
-      const filename = makeDbRefName(bodyParameters.prompt)
+      const filename = makeDbRefName('test')
       console.log(filename)
       const filetype = getFileType(resURL)
       console.log(filetype)
       const refName = addDbRefExt(filename, filetype)
       console.log(refName)
       // setFakeArtRef(refName)
-      getImageFile(resURL, refName)
+      const file = getImageFile(resURL, refName)
 
       
       } catch (error) {
@@ -85,8 +64,6 @@ const GetFakeArt = () => {
     return filename + filetype
   }
   
-  // BUG: CORS issue with openAI call
-  // Access to fetch at 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-IyCMwj0RWWvhDkV14UomDgos/user-9EsOmgI1HmI0SzBiND2o5SSU/img-h5DVe19ZoJWs0zIUikVAWkjZ.png?st=2023-03-03T23%3A23%3A26Z&se=2023-03-04T01%3A23%3A26Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-04T00%3A14%3A50Z&ske=2023-03-05T00%3A14%3A50Z&sks=b&skv=2021-08-06&sig=d4SHwtN5Zog%2BWlQ1VHoc7ixYptIUmUNpUQoilqj8K%2Bo%3D' from origin 'http://localhost:3001' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
   const getImageFile = (url, filename) => {
     console.log("getting file")
     console.log(url)
@@ -140,4 +117,4 @@ const GetFakeArt = () => {
   }
 }
 
-export default GetFakeArt
+export default GetFakeNews
