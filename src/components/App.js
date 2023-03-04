@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import ExhControl from './ExhControl';
 import LoginControl from './LoginControl';
+import GetFakeArt from './GetFakeArt';
+import GetFakeNews from './GetFakeNews';
 import Header from './Header';
 import PlanVisit from './PlanVisit';
 import Footer from './Footer';
@@ -28,6 +30,8 @@ function App() {
       <Container>
       <Routes> 
         <Route path="/log-in" element={<LoginControl />} />
+        <Route path="/get-fake-art" element={<GetFakeArt />} />
+        <Route path="/get-fake-news" element={<GetFakeNews />} />
         <Route path="/" element={main} />
       </Routes>
       </Container>
