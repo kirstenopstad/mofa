@@ -148,6 +148,7 @@ __User stories:__
 |2/25|3:40p| Add user registration, login & log out functionality |
 |2/25|4:52p| Add conditional rendering to LoginControl, add authorization to title/vote functionality |
 |2/25|5:00p| __Meets MVP Reqiurements__|
+|3/3|9:43a| Add basic styling to exhibition components to match wireframe mock up |
 <!-- |date|time|data13| -->
 
 ### Hour Totals
@@ -156,6 +157,7 @@ __User stories:__
 |2/17|8 hrs| Project planning, research and basic component creation|
 |2/24|8 hrs| Add conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
 |2/25|5 hrs| Add voting, authentication & authorization for add title + vote |
+|3/3|8 hrs| TBD|
 <!-- |date|hour|data13| -->
 
 ### Project Links

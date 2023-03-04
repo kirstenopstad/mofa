@@ -1,5 +1,8 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+
 
 const Artwork = ({ selArt, titles, whenArtworkClick }) => {
   const { image, prompt, id } = selArt;
@@ -28,11 +31,15 @@ const Artwork = ({ selArt, titles, whenArtworkClick }) => {
     
   return(
     <React.Fragment>
-      <img src={image} alt={prompt} className="exh-preview"/>
-      <p>{prompt}</p>
-      {/* TODO: show most popular title here */}
-      <h4>{mostPopTitle.title}</h4>
-      <button onClick={() => whenArtworkClick(id)}>Artwork Detail</button>
+      <Col sm={8}>
+        <img src={image} alt={prompt} className="exh-preview"/>
+      </Col>
+      <Col sm={4} className="exh-didactic">
+        <p>{prompt}</p>
+        {/* TODO: show most popular title here */}
+        <h4>{mostPopTitle.title}</h4>
+        <Button variant="outline-dark" onClick={() => whenArtworkClick(id)}>Artwork Detail</Button>
+      </Col>
     </React.Fragment>
   );
 }

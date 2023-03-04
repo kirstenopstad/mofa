@@ -5,6 +5,13 @@ import closeIcon from './../img/icons/x-lg.svg'
 import upVoteIcon from './../img/icons/arrow-up.svg'
 import downVoteIcon from './../img/icons/arrow-down.svg'
 import { Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 
 const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) => {
@@ -93,28 +100,48 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
 
   return(
     <React.Fragment>
-      <img onClick={() => onClose()} src={closeIcon}/>
-      <h2>Selected Artwork</h2>
-      <img src={image} alt="prompt" className="art-detail"/>
 
-      <h4>{mostPopTitle.title}</h4>
-      <ul>
-        {selTitles.map((title) =>
-          <li key={title.id}>
-            {title.title} | {title.votes} votes  
-            <img onClick={() => handleUpVote(title)} src={upVoteIcon} alt="up vote"/>
-            <img onClick={() => handleDownVote(title)} src={downVoteIcon} alt="down vote"/>
-            </li>
-        )}
-      </ul>
-      {errorMessage} {errorLink}
-      <form onSubmit={handleTitleSubmission}>Add Title
-        <input 
-          type="text" 
-          name="title"
-          placeholder={inputPlaceholder}/>
-        <button type="submit">Submit</button>
-      </form>
+      <Container>
+      <Row>
+        <Col sm={12}>
+          <img onClick={() => onClose()} src={closeIcon} className="close-icon"/>
+        </Col>
+    
+        <img src={image} alt="prompt" className="artwork-detail"/>
+        <h4>{mostPopTitle.title}</h4>
+        
+        <Col>
+        {errorMessage} {errorLink}
+        <ListGroup variant="flush">
+            {selTitles.map((title) =>
+              <ListGroup.Item  key={title.id}>
+                <Row className="title-entry">
+                  <Col xs="auto">
+                    <img onClick={() => handleUpVote(title)} src={upVoteIcon} alt="up vote"/>
+                    <img onClick={() => handleDownVote(title)} src={downVoteIcon} alt="down vote"/>
+                  </Col>
+                  <Col xs="auto">{title.title} </Col>
+                  <Col xs="auto">{title.votes} votes</Col>
+                </Row>
+                </ListGroup.Item>
+            )}
+          </ListGroup>
+          <Form onSubmit={handleTitleSubmission} className="title-form">
+            <Row className="align-items-center">
+              <Col xs="auto">
+                <Form.Label className="mb-2">Add Title</Form.Label>
+              </Col>
+              <Col xs="auto">
+                <Form.Control className="mb-2" type="text" name='title' placeholder={inputPlaceholder} />
+              </Col>
+              <Col xs="auto">
+                <Button  className="mb-2" variant="dark" type="submit">Submit</Button>
+              </Col>
+            </Row>
+          </Form>
+        </Col>
+      </Row>
+      </Container>
 
     </React.Fragment>
   );
