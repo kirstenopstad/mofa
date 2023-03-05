@@ -13,8 +13,8 @@ import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 
-
-const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) => {
+const ArtworkDetail = (
+  { selectedArt, titles, userVotes, onClose, onTitleSubmit, onVote, onLogFirstVote, onLogUserVote }) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [errorLink, setErrorLink] = useState(null);
   const [inputPlaceholder, setinputPlaceholder] = useState("Title");
@@ -73,6 +73,7 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
         ...title,
         votes: title.votes + 1
       })
+      handleLogUserVote(title)
     }
   }
   
@@ -86,7 +87,38 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
         ...title,
         votes: title.votes - 1 
       })
+      handleLogUserVote(title)
     }
+  }
+
+  const handleLogUserVote = (title) => {
+    let userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
+    // add title.id to titlesVotedOn array 
+    if (!userVotesToUpdate) {
+      // create a new userVotes doc
+      // const votedOnArray = []
+      userVotesToUpdate = {
+        userId: auth.currentUser.uid,
+        titlesVotedOn: [title.id],
+      }
+      onLogFirstVote(userVotesToUpdate)
+    } else {
+      if (validateVote(userVotesToUpdate, title)) {
+        const votedOnArray = userVotesToUpdate.titlesVotedOn;
+        onLogUserVote({
+          ...userVotesToUpdate,
+          titlesVotedOn: votedOnArray.push(title.id),
+        })
+      } else {
+        console.log(`error! user has already voted on this title`)
+      }
+    }
+  }
+
+  const validateVote = (userVotes, title) => {
+    if (!userVotes.titlesVotedOn.includes(title.id)) {
+      return true
+    } 
   }
 
   const validateTitle = (titleVal) => {
@@ -149,8 +181,11 @@ const ArtworkDetail = ({ selectedArt, titles, onClose, onTitleSubmit, onVote }) 
 ArtworkDetail.propTypes = {
   selectedArt: PropTypes.object,
   titles: PropTypes.array,
+  userVotes: PropTypes.array,
   onClose: PropTypes.func,
   onTitleSubmit: PropTypes.func,
-  onVote: PropTypes.func
+  onVote: PropTypes.func,
+  onLogFirstVote: PropTypes.func,
+  onLogUserVote: PropTypes.func
 }
 export default ArtworkDetail;
