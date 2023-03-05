@@ -4,26 +4,38 @@ import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 // calls the DALLE•2 API and adds one artwork to db
 
+// API call via OpenAI
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+apiKey: process.env.REACT_APP_DALLE2_BEARER_TOKEN,
+});
+const openai = new OpenAIApi(configuration);
+//
+
 const GetFakeArt = () => {
   const [error, setError]= useState(null);
   const [isLoaded, setIsLoaded]= useState(false);
   const [fakeArtURL, setFakeArtURL]= useState("");
 
+  // const URL="https://oaidalleapiprodscus.blob.core.windows.net/private/org-IyCMwj0RWWvhDkV14UomDgos/user-9EsOmgI1HmI0SzBiND2o5SSU/img-7thX2cgJRDyyPIvqgM49amkG.png?st=2023-03-05T16%3A43%3A10Z&se=2023-03-05T18%3A43%3A10Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-05T01%3A26%3A38Z&ske=2023-03-06T01%3A26%3A38Z&sks=b&skv=2021-08-06&sig=b/z1K1qXPQfJDqv2AL%2BHRQH5Q8U5sYfSCout911XChg%3D"
+  
+  // API call via AXIOS
   // axios config for OpenAI
   const config = {
     headers: { 
       Authorization: `Bearer ${process.env.REACT_APP_DALLE2_BEARER_TOKEN}`,
       AccessControlAllowOrigin: true,
-   }
-    };
-    
-  const bodyParameters = {
-      // "prompt": "painting of a diner at night in the style of Renoir",
-      "prompt": "purple toothpaste in the style of Andy Warhol",
-      "n": 1,
-      "size": "1024x1024"
+    }
   };
-
+  
+  const bodyParameters = {
+    // "prompt": "painting of a diner at night in the style of Renoir",
+    "prompt": "purple toothpaste in the style of Andy Warhol",
+    "n": 1,
+    "size": "1024x1024"
+  };
+  
   // axios getArt call using async / await
   // TODO: update with art, using NYT to save calls
   const getArt = async () => {
@@ -31,17 +43,24 @@ const GetFakeArt = () => {
       console.log(config)
       console.log(bodyParameters)
       console.log(bodyParameters)
-      let res = await axios.post( 
-        'https://api.openai.com/v1/images/generations',
-        bodyParameters,
-        config
-        )
-      console.log(res)
-      console.log(res.data)
-      const resURL =  res.data.data[0].url;
+      const res = await openai.createImage({
+      prompt: "a white siamese cat",
+      n: 1,
+      size: "1024x1024",
+      });
+      // AXIOS call
+      // let res = await axios.post( 
+      //   'https://api.openai.com/v1/images/generations',
+      //   bodyParameters,
+      //   config
+      //   )
+        console.log(res)
+        console.log(res.data)
+        const resURL =  res.data.data[0].url;
       setIsLoaded(true);
       // // get fake art URL
       setFakeArtURL(resURL);
+      
       const filename = makeDbRefName(bodyParameters.prompt)
       console.log(filename)
       const filetype = getFileType(resURL)
@@ -64,7 +83,7 @@ const GetFakeArt = () => {
     // get index of period
     const dotIndex = url.lastIndexOf('.')
     // get last three characters of file
-    const filetype = url.slice(dotIndex, url.length)
+    const filetype = url.slice(dotIndex, dotIndex + 4)
     // return filetype (i.e. '.jpg')
     // setFakeArtFiletype(filetype)
     return filetype
