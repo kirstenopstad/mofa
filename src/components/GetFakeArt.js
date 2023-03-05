@@ -19,7 +19,7 @@ const GetFakeArt = () => {
     
   const bodyParameters = {
       // "prompt": "painting of a diner at night in the style of Renoir",
-      "prompt": "painting of a diner at night in the style of Renoir",
+      "prompt": "purple toothpaste in the style of Andy Warhol",
       "n": 1,
       "size": "1024x1024"
   };
