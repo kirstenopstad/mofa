@@ -43,7 +43,7 @@ const Login = () => {
           <Form.Control type="password" name='password' placeholder="Password" />
         </Form.Group>
         
-        <Button variant="primary" type="submit">
+        <Button variant="outline-dark" type="submit">
           Login
         </Button>
       </Form>

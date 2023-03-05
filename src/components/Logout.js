@@ -25,7 +25,7 @@ const Logout = () => {
     return(
       <div className="logout-container">
         <Form onSubmit={handleSignOut}>
-          <Button type="submit">Logout</Button>
+          <Button type="submit" variant="dark">Logout</Button>
         </Form>
       </div>
     )

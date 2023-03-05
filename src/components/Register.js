@@ -42,7 +42,7 @@ const Register = () => {
             <Form.Control type="password" name='password' placeholder="Password" />
           </Form.Group>
           
-          <Button variant="primary" type="submit">
+          <Button variant="outline-dark" type="submit">
             Register
           </Button>
         </Form>
