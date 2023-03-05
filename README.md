@@ -154,7 +154,7 @@ __User stories:__
 |3/3|4:39p| __Important:__ OpenAI does not allow CORS |
 |3/5|9:30a| OpenAI API doesn't provide a built-in CORS solution|
 |3/5|12:20p| Attempt downloading images by proxy fails, shift focus to priority features |
-|3/5|2:02p| Firebase will coerce array data to number (size of array) without .FieldValue method|
+|3/5|2:02p| Firebase will coerce array data to number (size of array) without .arrayUnion method|
 <!-- |date|time|data13| -->
 
 ### Hour Totals
