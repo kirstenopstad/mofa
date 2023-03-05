@@ -11,6 +11,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { FieldValue, arrayUnion } from "firebase/firestore";
 
 
 const ArtworkDetail = (
@@ -64,54 +65,61 @@ const ArtworkDetail = (
   }
 
   const handleUpVote = (title) => {
-    // TODO: check if user has voted on this one
+    const userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
+    // check that user is logged in
     if (auth.currentUser == null) {
       setErrorMessage("You must be logged in to vote.")
       setErrorLink(<Link to="/log-in">Login</Link>)
+    // check if user has not already voted on this title
+    } else if (!validateVote(userVotesToUpdate, title)) {
+      setErrorMessage("You may only vote once per title.")
     } else {
       onVote({
         ...title,
         votes: title.votes + 1
       })
+      // log title to userVotes
       handleLogUserVote(title)
+      // reset error message
+      setErrorMessage(null)
     }
   }
   
   const handleDownVote = (title) => {
-    // TODO: check if user has voted on this one
+    const userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
+    // check that user is logged in
     if (auth.currentUser == null) {
       setErrorMessage("You must be logged in to vote.")
       setErrorLink(<Link to="/log-in">Login</Link>)
+    // check if user has not already voted on this title
+    } else if (!validateVote(userVotesToUpdate, title)) {
+      setErrorMessage("You may only vote once per title.")
     } else {
       onVote({
         ...title,
         votes: title.votes - 1 
       })
+      // log title to userVotes
       handleLogUserVote(title)
+      // reset error message
+      setErrorMessage(null)
     }
   }
 
   const handleLogUserVote = (title) => {
     let userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
-    // add title.id to titlesVotedOn array 
+    // if this is a users first vote, create a userVotes doc & add title id
     if (!userVotesToUpdate) {
-      // create a new userVotes doc
-      // const votedOnArray = []
       userVotesToUpdate = {
         userId: auth.currentUser.uid,
-        titlesVotedOn: [title.id],
+        titlesVotedOn: arrayUnion(title.id),
       }
       onLogFirstVote(userVotesToUpdate)
     } else {
-      if (validateVote(userVotesToUpdate, title)) {
-        const votedOnArray = userVotesToUpdate.titlesVotedOn;
-        onLogUserVote({
-          ...userVotesToUpdate,
-          titlesVotedOn: votedOnArray.push(title.id),
-        })
-      } else {
-        console.log(`error! user has already voted on this title`)
-      }
+      onLogUserVote({
+        ...userVotesToUpdate,
+        titlesVotedOn: arrayUnion(title.id),
+      });
     }
   }
 
