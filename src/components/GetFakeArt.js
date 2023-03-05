@@ -13,8 +13,7 @@ const GetFakeArt = () => {
   const config = {
     headers: { 
       Authorization: `Bearer ${process.env.REACT_APP_DALLE2_BEARER_TOKEN}`,
-      AccessControlAllowOrigin: true,
-   }
+     }
     };
     
   const bodyParameters = {
@@ -64,7 +63,7 @@ const GetFakeArt = () => {
     // get index of period
     const dotIndex = url.lastIndexOf('.')
     // get last three characters of file
-    const filetype = url.slice(dotIndex, url.length)
+    const filetype = url.slice(dotIndex, dotIndex + 4)
     // return filetype (i.e. '.jpg')
     // setFakeArtFiletype(filetype)
     return filetype
