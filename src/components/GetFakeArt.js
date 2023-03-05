@@ -108,6 +108,7 @@ const GetFakeArt = ({handleGenerateArt}) => {
           url: url,
           storageRef: fileRef,
           prompt: prompt,
+          isSaved: false,
         })    
     }
   const uploadImageToDb = (refName, file) => {
