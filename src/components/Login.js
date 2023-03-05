@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+
 const Login = () => {
   const [signInSuccess, setSignInSuccess] = useState(null);
   const [showForm, setShowForm] = useState(true);
@@ -50,11 +51,11 @@ const Login = () => {
 
   return(
     // TODO: add syling for signin error
-    <React.Fragment>
+    <div className="login-container">
     <h2>Login</h2>
     {signInSuccess}
     {form}
-    </React.Fragment>
+    </div>
   )
 }
 

@@ -23,13 +23,17 @@ const Logout = () => {
 
   if (auth.currentUser != null) {
     return(
-      <Form onSubmit={handleSignOut}>
-        <Button type="submit">Logout</Button>
-      </Form>
+      <div className="logout-container">
+        <Form onSubmit={handleSignOut}>
+          <Button type="submit">Logout</Button>
+        </Form>
+      </div>
     )
   } else {
     return(
-      <p>{signOutSuccess}</p>
+      <div className="logout-container">
+        <p>{signOutSuccess}</p>
+      </div>
       
     );
   }

@@ -50,11 +50,11 @@ const Register = () => {
 
   return(
     // TODO: add syling for signin error
-    <React.Fragment>
+    <div className="login-container">
       <h2>Register</h2>
       {signUpSuccess}
       {regForm}
-    </React.Fragment>
+    </div>
   )
 }
 
