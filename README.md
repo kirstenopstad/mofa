@@ -47,7 +47,7 @@ Additionally, code will be reviewed for the following objectives:
 
 __User stories:__
 * ✅ Users can register and login
-* Users may only vote once per AI-generated artwork
+* ✅ Users may only vote once per AI-generated artwork
 
 ## Process 
 
