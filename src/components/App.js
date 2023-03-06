@@ -50,7 +50,6 @@ function App() {
       <Header/>
       <Container>
       <Routes> 
-        <Route path="/log-in" element={<LoginControl />} />
         <Route path="/get-fake-art" element={<GetFakeArt handleGenerateArt={handleGenerateArt} />} />
         <Route path="/get-fake-news" element={<GetFakeNews />} />
         <Route path="/" element={main} />

@@ -3,7 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import { auth } from './../firebase.js'
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
-import { Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 const Footer = ({onLoginClick, onLogoutClick}) => {
   
@@ -16,12 +17,11 @@ const Footer = ({onLoginClick, onLogoutClick}) => {
 
   const footerBrand = <p>Built by KO</p>
   
-  // TODO: make this say "logout" if user is logged in
   let loginButtonText = "";
   if (auth.currentUser === null) {
-    loginButtonText = <Button onClick={onLoginClick}>Login</Button>
+    loginButtonText = <Button variant="light" onClick={onLoginClick}>Login</Button>
   } else {
-    loginButtonText = <Button onClick={onLogoutClick}>Logout</Button>
+    loginButtonText = <Button variant="light" onClick={onLogoutClick}>Logout</Button>
   }
 
   return(
@@ -30,7 +30,6 @@ const Footer = ({onLoginClick, onLogoutClick}) => {
     {footerBrand}
     <Nav defaultActiveKey="/home" className="flex-column">
       <Nav.Item>
-        {/* <Link to="/log-in">{loginControlText}</Link> */}
         {loginButtonText}
       </Nav.Item>
     </Nav>

@@ -47,6 +47,7 @@ const Login = ({onRegister}) => {
         <Button variant="outline-dark" type="submit">
           Login
         </Button>
+        {' '}
         <Button variant="outline-dark" onClick={onRegister}>
           Register
         </Button>

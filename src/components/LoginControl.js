@@ -28,7 +28,7 @@ const LoginControl = () => {
 
   if (showRegister) {
     form = <Register onLogin={handleShowLogin}/>
-    button = <Button onClick={handleShowLogin}>Login</Button>
+    button = <Button onClick={handleShowLogin} variant="dark">Login</Button>
   } else if (showLogin) {
     form = <Login onRegister={handleShowRegsiter}/>
   } else {
@@ -47,7 +47,6 @@ const LoginControl = () => {
         </Row>
       </Modal.Body>
       <Modal.Footer>
-        {/* TODO: hide until reegisters */}
         {button}
       </Modal.Footer>
     </Container>
