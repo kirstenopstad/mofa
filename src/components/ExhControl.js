@@ -12,6 +12,7 @@ const ExhControl = () => {
   const [exhList, setExhList] = useState(exhibitions);
   const [artList, setArtList] = useState(artworks);
   const [titleList, setTitleList] = useState(titles);
+  const [votesList, setVotesList] = useState(null);
 
   // selected
   // TODO: update this so it's dynamically setting obj
@@ -26,7 +27,7 @@ const ExhControl = () => {
   // promise utilities
   const [error, setError] = useState(null);
 
-  // Firebase comms
+  // Firebase comms >> get titles
   useEffect(() => {
     const unSub = onSnapshot(
       collection(db, "titles"),
@@ -39,6 +40,27 @@ const ExhControl = () => {
           })
         })
         setTitleList(results);
+      },
+      (error) => {
+        setError(error.message);
+      }
+    );
+    return () => unSub();
+  }, []);
+
+  // Firebase comms >> get votes
+  useEffect(() => {
+    const unSub = onSnapshot(
+      collection(db, "userVotes"),
+      (collectionSnapshot) => {
+        const results = [];
+        collectionSnapshot.forEach((doc) => {
+          results.push({
+            ...doc.data(),
+            id: doc.id
+          })
+        })
+        setVotesList(results);
       },
       (error) => {
         setError(error.message);
@@ -87,9 +109,26 @@ const ExhControl = () => {
   // add vote on title functionality
   const handleTitleVote = async (titleToVoteOn) => {
     const titleRef = doc(db, "titles", titleToVoteOn.id);
+    // add titleToVoteOn.id to UserVotes
     await updateDoc(titleRef, titleToVoteOn)
   }
-
+  
+  // add vote to userVotes
+  const handleAddInitialUserVotes = async (userVotesToUpdate) => {
+    // get collection userVotes
+    const userVotesRef = collection(db, "userVotes");
+    // update users' vote record
+    await addDoc(userVotesRef, userVotesToUpdate)
+  }
+  
+  // add vote to userVotes
+  const handleAddTitleToUserVotes = async (userVotesToUpdate) => {
+    // get collection userVotes
+    const userVotesRef = doc(db, "userVotes", userVotesToUpdate.id);
+    // update users' vote record
+    await updateDoc(userVotesRef, userVotesToUpdate)
+  }
+  
   let content = null;
   if (showExhList) {
     content = <ExhList 
@@ -108,8 +147,11 @@ const ExhControl = () => {
     content = <ArtworkDetail 
                 selectedArt={selectedArt} 
                 titles={titleList}
+                userVotes={votesList}
                 onTitleSubmit={handleTitleSubmit}
                 onVote={handleTitleVote}
+                onLogFirstVote={handleAddInitialUserVotes}
+                onLogUserVote={handleAddTitleToUserVotes}
                 onClose={handleClose}/>
   }
   return(
