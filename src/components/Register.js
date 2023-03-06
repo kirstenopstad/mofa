@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import {auth} from './../firebase.js'
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { PropTypes } from "prop-types";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { onLog } from "firebase/app";
 
-const Register = () => {
+const Register = ({onRegister, onLogin}) => {
   const [signUpSuccess, setSignUpSuccess] = useState(null);
   const [showRegisterForm, setShowRegisterForm] = useState(true);
 
@@ -42,20 +44,25 @@ const Register = () => {
             <Form.Control type="password" name='password' placeholder="Password" />
           </Form.Group>
           
-          <Button variant="primary" type="submit">
+          <Button variant="outline-dark" type="submit">
             Register
           </Button>
+          
         </Form>
-  }
-
+  } 
+  
   return(
     // TODO: add syling for signin error
-    <React.Fragment>
+    <div className="login-container">
       <h2>Register</h2>
       {signUpSuccess}
       {regForm}
-    </React.Fragment>
+    </div>
   )
+}
+
+Register.propTypes = {
+  onRegister: PropTypes.func
 }
 
 export default Register  
