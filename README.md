@@ -155,6 +155,8 @@ __User stories:__
 |3/5|9:30a| OpenAI API doesn't provide a built-in CORS solution|
 |3/5|12:20p| Attempt downloading images by proxy fails, shift focus to priority features |
 |3/5|2:02p| Firebase will coerce array data to number (size of array) without .arrayUnion method|
+|3/5|3:00p| Add functionality user can only vote once per title |
+|3/5|4:52p| Add modal styling to login/out feat. to hold users' place while logging in |
 <!-- |date|time|data13| -->
 
 ### Hour Totals
@@ -164,7 +166,7 @@ __User stories:__
 |2/24|8 hrs| Add conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
 |2/25|5 hrs| Add voting, authentication & authorization for add title + vote |
 |3/3|8 hrs| Add basic styling for exh components & add Firebase storage functionality |
-|3/5|6 hours| Attempt CORS workaround with proxy & TBD |
+|3/5|8 hours| Try CORS workaround w. proxy, add funct. user can only vote once per title, style login as modal |
 <!-- |date|hour|data13| -->
 
 ### Next Steps
