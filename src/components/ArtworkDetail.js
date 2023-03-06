@@ -15,7 +15,7 @@ import { FieldValue, arrayUnion } from "firebase/firestore";
 
 
 const ArtworkDetail = (
-  { selectedArt, titles, userVotes, onClose, onTitleSubmit, onVote, onLogFirstVote, onLogUserVote }) => {
+  { selectedArt, titles, userVotes, onClose, onTitleSubmit, onVote, onLogFirstVote, onLogUserVote, onLoginClick }) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [errorLink, setErrorLink] = useState(null);
   const [inputPlaceholder, setinputPlaceholder] = useState("Title");
@@ -48,7 +48,7 @@ const ArtworkDetail = (
     // if not signed in, return error
     if (auth.currentUser == null) {
       setErrorMessage("You must be logged in to submit a title.")
-      setErrorLink(<Link to="/log-in">Login</Link>)
+      setErrorLink(<Button variant="outline-dark" onClick={onLoginClick}>Login</Button>)
     } else {
       // if valid value (str of at least one character)
       if (validateTitle(e.target.title.value)) {
@@ -65,44 +65,51 @@ const ArtworkDetail = (
   }
 
   const handleUpVote = (title) => {
-    const userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
     // check that user is logged in
-    if (auth.currentUser == null) {
+    if (auth.currentUser === null) {
       setErrorMessage("You must be logged in to vote.")
-      setErrorLink(<Link to="/log-in">Login</Link>)
-    // check if user has not already voted on this title
-    } else if (!validateVote(userVotesToUpdate, title)) {
-      setErrorMessage("You may only vote once per title.")
+      setErrorLink(<Button variant="outline-dark" onClick={onLoginClick}>Login</Button>)
     } else {
-      onVote({
-        ...title,
-        votes: title.votes + 1
-      })
-      // log title to userVotes
-      handleLogUserVote(title)
-      // reset error message
-      setErrorMessage(null)
+      const userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
+      // check if user has not already voted on this title
+      if (!validateVote(userVotesToUpdate, title)) {
+        setErrorMessage("You may only vote once per title.")
+        setErrorLink(null)
+      } else {
+        onVote({
+          ...title,
+          votes: title.votes + 1
+        })
+        // log title to userVotes
+        handleLogUserVote(title)
+        // reset error message
+        setErrorMessage(null)
+      }
     }
+    
   }
   
   const handleDownVote = (title) => {
-    const userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
     // check that user is logged in
     if (auth.currentUser == null) {
       setErrorMessage("You must be logged in to vote.")
-      setErrorLink(<Link to="/log-in">Login</Link>)
-    // check if user has not already voted on this title
-    } else if (!validateVote(userVotesToUpdate, title)) {
-      setErrorMessage("You may only vote once per title.")
+      setErrorLink(<Button variant="outline-dark" onClick={onLoginClick}>Login</Button>)
     } else {
-      onVote({
-        ...title,
-        votes: title.votes - 1 
-      })
-      // log title to userVotes
-      handleLogUserVote(title)
-      // reset error message
-      setErrorMessage(null)
+      const userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
+      if (!validateVote(userVotesToUpdate, title)) {
+        // check if user has not already voted on this title
+        setErrorMessage("You may only vote once per title.")
+        setErrorLink(null)
+      } else {
+        onVote({
+          ...title,
+          votes: title.votes - 1 
+        })
+        // log title to userVotes
+        handleLogUserVote(title)
+        // reset error message
+        setErrorMessage(null)
+      }
     }
   }
 
@@ -194,6 +201,7 @@ ArtworkDetail.propTypes = {
   onTitleSubmit: PropTypes.func,
   onVote: PropTypes.func,
   onLogFirstVote: PropTypes.func,
-  onLogUserVote: PropTypes.func
+  onLogUserVote: PropTypes.func,
+  onLoginClick: PropTypes.func
 }
 export default ArtworkDetail;

@@ -3,8 +3,10 @@ import { auth } from "./../firebase.js"
 import { signOut } from "firebase/auth";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import Container from 'react-bootstrap/Container';
 
-const Logout = () => {
+const Logout = ({onClose}) => {
   const [signOutSuccess, setSignOutSuccess] = useState(null);
   // const [showLogoutButton, setShowLogoutButton] = useState(true);
   
@@ -20,23 +22,31 @@ const Logout = () => {
       })
   }
   
-
+  let logoutBody = null;
   if (auth.currentUser != null) {
-    return(
-      <div className="logout-container">
-        <Form onSubmit={handleSignOut}>
-          <Button type="submit" variant="dark">Logout</Button>
-        </Form>
-      </div>
-    )
+    logoutBody =
+    <Form onSubmit={handleSignOut}>
+      <p>Please confirm to logout of this session.</p>
+      <Button type="submit" variant="dark">Logout</Button>
+    </Form>
   } else {
-    return(
-      <div className="logout-container">
-        <p>{signOutSuccess}</p>
-      </div>
-      
-    );
+    logoutBody =  <p>{signOutSuccess}</p>
   }
+
+  return(
+    <div className="logout-container">
+    <Container>
+      <Modal.Header closeButton>
+      <Modal.Title>Logout</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {logoutBody}
+      </Modal.Body>
+    </Container>
+    </div>
+  )
+ 
+ 
 
 }
 

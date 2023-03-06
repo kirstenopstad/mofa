@@ -7,7 +7,9 @@ import { db } from './../firebase'
 import { collection, doc, addDoc, updateDoc, onSnapshot } from "firebase/firestore";
 import { exhibitions, artworks, titles } from './../ExhSeedData'
 
-const ExhControl = () => {
+const ExhControl = ({onLoginClick}) => {
+  // TODO: add props for on Login Click
+
   // lists
   const [exhList, setExhList] = useState(exhibitions);
   const [artList, setArtList] = useState(artworks);
@@ -152,6 +154,7 @@ const ExhControl = () => {
                 onVote={handleTitleVote}
                 onLogFirstVote={handleAddInitialUserVotes}
                 onLogUserVote={handleAddTitleToUserVotes}
+                onLoginClick={onLoginClick}
                 onClose={handleClose}/>
   }
   return(

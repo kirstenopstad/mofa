@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import {auth} from './../firebase.js'
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { PropTypes } from "prop-types";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-const Login = () => {
+const Login = ({onRegister}) => {
   const [signInSuccess, setSignInSuccess] = useState(null);
   const [showForm, setShowForm] = useState(true);
 
@@ -46,6 +47,10 @@ const Login = () => {
         <Button variant="outline-dark" type="submit">
           Login
         </Button>
+        <Button variant="outline-dark" onClick={onRegister}>
+          Register
+        </Button>
+
       </Form>
   } 
 
@@ -57,6 +62,10 @@ const Login = () => {
     {form}
     </div>
   )
+}
+
+Login.propTypes = {
+  onRegister: PropTypes.func
 }
 
 export default Login  
