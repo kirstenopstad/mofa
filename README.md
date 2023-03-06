@@ -152,6 +152,8 @@ __User stories:__
 |3/3|12:15p| Work in progress: upload file to db from URL |
 |3/3|3:27p| Add functionality to add image to database from API-generated URL |
 |3/3|4:39p| __Important:__ OpenAI does not allow CORS |
+|3/5|9:30a| OpenAI API doesn't provide a built-in CORS solution|
+|3/5|12:20p| Attempt downloading images by proxy fails, shift focus to priority features |
 <!-- |date|time|data13| -->
 
 ### Hour Totals
@@ -161,6 +163,7 @@ __User stories:__
 |2/24|8 hrs| Add conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
 |2/25|5 hrs| Add voting, authentication & authorization for add title + vote |
 |3/3|8 hrs| Add basic styling for exh components & add Firebase storage functionality |
+|3/5|6 hours| Attempt CORS workaround with proxy & TBD |
 <!-- |date|hour|data13| -->
 
 ### Next Steps

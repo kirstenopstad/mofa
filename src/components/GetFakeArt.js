@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { PropTypes } from "prop-types";
+
 
 // calls the DALLE•2 API and adds one artwork to db
 
-const GetFakeArt = () => {
+const GetFakeArt = ({handleGenerateArt}) => {
   const [error, setError]= useState(null);
   const [isLoaded, setIsLoaded]= useState(false);
   const [fakeArtURL, setFakeArtURL]= useState("");
@@ -16,9 +18,11 @@ const GetFakeArt = () => {
      }
     };
     
+  const prompt = "purple toothpaste in the style of Andy Warhol";
+
   const bodyParameters = {
       // "prompt": "painting of a diner at night in the style of Renoir",
-      "prompt": "purple toothpaste in the style of Andy Warhol",
+      "prompt": prompt,
       "n": 1,
       "size": "1024x1024"
   };
@@ -27,29 +31,23 @@ const GetFakeArt = () => {
   // TODO: update with art, using NYT to save calls
   const getArt = async () => {
     try {
-      console.log(config)
-      console.log(bodyParameters)
-      console.log(bodyParameters)
       let res = await axios.post( 
         'https://api.openai.com/v1/images/generations',
         bodyParameters,
         config
         )
-      console.log(res)
-      console.log(res.data)
+      
       const resURL =  res.data.data[0].url;
       setIsLoaded(true);
-      // // get fake art URL
+      // get fake art URL
       setFakeArtURL(resURL);
       const filename = makeDbRefName(bodyParameters.prompt)
-      console.log(filename)
+      // console.log(filename)
       const filetype = getFileType(resURL)
-      console.log(filetype)
       const refName = addDbRefExt(filename, filetype)
-      console.log(refName)
       // setFakeArtRef(refName)
-      getImageFile(resURL, refName)
-
+      // getImageFile(resURL, refName) // disabled due to CORS issue
+      addArtDataToDb(resURL, refName, prompt) 
       
       } catch (error) {
         setError(`Problem: ${error.message}`)
@@ -84,6 +82,15 @@ const GetFakeArt = () => {
     return filename + filetype
   }
   
+  const addArtDataToDb = (url, fileRef, prompt) => {
+      handleGenerateArt({
+          url: url,
+          storageRef: fileRef,
+          prompt: prompt,
+          isSaved: false,
+        })    
+  }
+
   // BUG: CORS issue with openAI call
   // Access to fetch at 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-IyCMwj0RWWvhDkV14UomDgos/user-9EsOmgI1HmI0SzBiND2o5SSU/img-h5DVe19ZoJWs0zIUikVAWkjZ.png?st=2023-03-03T23%3A23%3A26Z&se=2023-03-04T01%3A23%3A26Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-04T00%3A14%3A50Z&ske=2023-03-05T00%3A14%3A50Z&sks=b&skv=2021-08-06&sig=d4SHwtN5Zog%2BWlQ1VHoc7ixYptIUmUNpUQoilqj8K%2Bo%3D' from origin 'http://localhost:3001' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
   const getImageFile = (url, filename) => {
@@ -98,14 +105,13 @@ const GetFakeArt = () => {
       .then((blob) => {
         // turn it into a file
         const file = new File([blob], filename, {type: blob.type})
-        console.log(file)
-        // setFakeArtFile(file)
-        uploadImageToDb(filename, file)
+        console.log(file)    
+        // uploadImageToDb(filename, file)
         // return file 
-          })
-        })
-      }
-      
+      })
+    })
+  }
+  
   const uploadImageToDb = (refName, file) => {
       // create root ref
       const storage = getStorage();
@@ -118,11 +124,11 @@ const GetFakeArt = () => {
       })
     }
       
-      // run this once on load
-      useEffect(() => {
-        // get fake artwork & add to db
-        getArt();
-      }, [])
+  // run this once on load
+  useEffect(() => {
+    // get fake artwork & add data to db
+    getArt();
+  }, [])
 
   // display to check
   if (error) {
@@ -139,4 +145,7 @@ const GetFakeArt = () => {
   }
 }
 
+GetFakeArt.propTypes = {
+  handleGenerateArt: PropTypes.func
+}
 export default GetFakeArt
