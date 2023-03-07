@@ -158,6 +158,7 @@ __User stories:__
 |3/5|3:00p| Add functionality user can only vote once per title |
 |3/5|4:52p| Add modal styling to login/out feat. to hold users' place while logging in |
 |3/6|8:30a| Add mkcert to make https://local... match OpenAI image URL |
+|3/6|10:20a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
 <!-- |date|time|data13| -->
 
 ### Hour Totals
