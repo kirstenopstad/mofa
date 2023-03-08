@@ -8,7 +8,7 @@ const Visit = () => {
   return(
     <div className="visit">
       <img  src={map} alt={prompt} />
-      <p>{prompt}</p>
+      <p><i>{prompt}</i></p>
       <PlanVisit />
     </div>
   );

@@ -20,7 +20,7 @@ const About = () => {
           <img src={about2} alt={prompt} />
         </Carousel.Item>
       </Carousel>
-      <p>{prompt}</p>
+      <p><i>{prompt}</i></p>
       <div>
 
         <h1>About</h1>
