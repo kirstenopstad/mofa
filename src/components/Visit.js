@@ -6,11 +6,11 @@ const Visit = () => {
   const prompt = "a google map showing the location of a fake art museum in the style of Mondrian";
   // TODO: resize image, horizontally align plan visit center, style caption
   return(
-    <React.Fragment>
+    <div className="visit">
       <img  src={map} alt={prompt} />
       <p>{prompt}</p>
       <PlanVisit />
-    </React.Fragment>
+    </div>
   );
 }
 

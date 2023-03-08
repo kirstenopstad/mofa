@@ -11,19 +11,19 @@ const Header = () => {
       <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand>
-          <Link to="/">MOFA</Link>
+          <Link to="/" className="header-nav-item">MOFA</Link>
           </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as="li">
-              <Link to="/visit">Visit</Link>
+              <Link to="/visit" className="header-nav-item">Visit</Link>
             </Nav.Link>
             <Nav.Link as="li">
-              <Link  to="/store">Store</Link>
+              <Link  to="/store" className="header-nav-item">Store</Link>
             </Nav.Link>
             <Nav.Link as="li">
-              <Link to="/membership">Membership</Link>
+              <Link to="/membership" className="header-nav-item">Membership</Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

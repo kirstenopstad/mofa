@@ -10,9 +10,9 @@ const Footer = ({onLoginClick, onLogoutClick}) => {
   
   const footerNav = 
         <Nav defaultActiveKey="/home" className="flex-column">
-          <Link to="/about">About MOFA</Link>
-          <Link to="/faq">FAQ</Link>
-          <Link to="/subscribe">Subscribe</Link>
+          <Link className="footer-nav-item" to="/about">About MOFA</Link>
+          <Link className="footer-nav-item" to="/faq">FAQ</Link>
+          <Link className="footer-nav-item"to="/subscribe">Subscribe</Link>
         </Nav>
 
   const footerBrand = <p>Built by KO</p>

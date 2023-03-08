@@ -92,21 +92,24 @@ function App() {
   
   return (
     <Router> 
-      <Header/>
-      <Container>
-      <Routes> 
-        <Route path="/get-fake-art" element={<GetFakeArt handleGenerateArt={handleGenerateArt} />} />
-        <Route path="/get-fake-news" element={<GetFakeNews />} />
-        <Route path="/" element={main} />
-        <Route path="/visit" element={<Visit />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/membership" element={<Membership />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/faq" element={<Faq />} />
-        <Route path="/subscribe" element={<Subscribe />} />
-      </Routes>
-      </Container>
-      <Footer onLoginClick={handleShowLogin} onLogoutClick={handleLogout} onClose={handleCloseLogin}/>
+      <div className='page-container'>
+        <Header/>
+        <Container className="content-wrap">
+        <Routes> 
+          <Route path="/get-fake-art" element={<GetFakeArt handleGenerateArt={handleGenerateArt} />} />
+          <Route path="/get-fake-news" element={<GetFakeNews />} />
+          <Route path="/" element={main} />
+          <Route path="/visit" element={<Visit />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/membership" element={<Membership />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/subscribe" element={<Subscribe />} />
+        </Routes>
+        </Container>
+        <Footer onLoginClick={handleShowLogin} onLogoutClick={handleLogout} onClose={handleCloseLogin}/>
+
+      </div>
     </Router>
   );
 }
