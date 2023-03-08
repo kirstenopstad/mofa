@@ -21,10 +21,6 @@ p,li {
   max-width: 500px;
 }
 
-img {
-  /* max-width: 500px; */
-}
-
 .about {
   display: flex;
   flex-direction: column;
@@ -59,7 +55,7 @@ img {
 
 .content-wrap {
   padding-top: 15px;
-  padding-bottom: 6em;
+  padding-bottom: 7em;
 }
 
 .exh {

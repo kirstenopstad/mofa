@@ -29,7 +29,7 @@ const  faq = [
   },
   {
     question: `Who are you, anyway?`,
-    answer: `I'm Kirsten. I live in Los Angeles, used to work at an art museum and write code. I appeciate you taking the time to check this out.`
+    answer: `I'm Kirsten. I live in Los Angeles and write code. I used to work at an art museum! I appeciate you taking the time to check this out.`
   },
 ]
 

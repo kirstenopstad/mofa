@@ -82,12 +82,7 @@ function App() {
     <div>
       <PlanVisit />
       <ExhControl onLoginClick={handleShowLogin}/>
-      <Modal show={showLogin} onHide={handleCloseLogin}>
-        <LoginControl />
-      </Modal>
-      <Modal show={showLogout} onHide={handleCloseLogout}>
-        <Logout />
-      </Modal>
+
     </div>
   
   return (
@@ -106,6 +101,12 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/subscribe" element={<Subscribe />} />
         </Routes>
+        <Modal show={showLogin} onHide={handleCloseLogin}>
+          <LoginControl />
+        </Modal>
+        <Modal show={showLogout} onHide={handleCloseLogout}>
+          <Logout />
+        </Modal>
         </Container>
         <Footer onLoginClick={handleShowLogin} onLogoutClick={handleLogout} onClose={handleCloseLogin}/>
 
