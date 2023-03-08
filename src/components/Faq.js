@@ -1,7 +1,9 @@
 import React from "react";
+import Accordion from 'react-bootstrap/Accordion';
+import faq from "./../FaqSeedData";
 
 const Faq = () => {
-  // how is artwork generated?
+  // How is artwork generated?
   
   // what is the tech stack used?
   
@@ -19,7 +21,17 @@ const Faq = () => {
 
   return(
     <div className="faq">
-      <h1>Faq</h1>
+      <Accordion defaultActiveKey="0">
+      <h1>Frequently Asked Questions</h1>
+      {faq.map((question) => 
+      <Accordion.Item eventKey={`${question.question}`}>
+        <Accordion.Header>{question.question}</Accordion.Header>
+        <Accordion.Body>
+          {question.answer}
+        </Accordion.Body>
+      </Accordion.Item>
+      )}
+      </Accordion>
     </div>
   );
 }

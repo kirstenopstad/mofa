@@ -51,6 +51,9 @@
   /* background-color: gainsboro; */
 }
 
+.faq {
+  margin-bottom: 15px;
+}
 .footer {
   background-color: black;
   display: flex;
@@ -109,4 +112,13 @@
   margin-top: 15px;
   justify-content: center;
   border-radius: 10px;
+}
+
+.subscribe img {
+  max-width: 90vw;
+  max-height: 60vh;
+}
+
+.subscribe button {
+  margin-bottom: 15px;
 }
