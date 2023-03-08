@@ -77,6 +77,12 @@
   font-size: small;
 }
 
+.store-img {
+  max-height: 30vh;
+  max-width: 90vw;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
 .title-entry {
   display: flex;
   flex-direction: row;
