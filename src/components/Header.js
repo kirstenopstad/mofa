@@ -16,10 +16,15 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Exhibitions</Nav.Link>
-            <Nav.Link href="#link">Visit</Nav.Link>
-            <Nav.Link href="#link">Store</Nav.Link>
-            <Nav.Link href="#link">Membership</Nav.Link>
+            <Nav.Link>
+              <Link to="/visit">Visit</Link>
+              </Nav.Link>
+            <Nav.Link>
+              <Link to="/store">Store</Link>
+              </Nav.Link>
+            <Nav.Link>
+              <Link to="/membership">Membership</Link>
+              </Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

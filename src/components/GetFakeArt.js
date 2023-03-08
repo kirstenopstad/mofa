@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { PropTypes } from "prop-types";
-// requirements for proxy
 import axios from "axios";
-import express from "express";
-const bodyParser = require('body-parser');
-const cors = require('cors');
-var CircularJSON = require('circular-json-es6');
-
+// requirements for proxy
+import { app, proxy } from './../firebaseProxy'
 
 
 // calls the DALLE•2 API and adds one artwork to db
-
 const GetFakeArt = ({handleGenerateArt}) => {  
   const [error, setError]= useState(null);
   const [isLoaded, setIsLoaded]= useState(false);
@@ -97,25 +92,6 @@ const GetFakeArt = ({handleGenerateArt}) => {
     })    
   }
 
-  // SETUP PROXY SERVER
-  // build the proxy
-  const app = express();
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(cors());
-  // call the API
-  app.get('/', (req, res) => {
-    axios.get('https://bing.com/covid/data')
-      .then(data => {
-      res.send(CircularJSON.stringify(data.data));
-      })
-      .catch(error=> {
-      console.log(error.message);
-      })
-    });
-  app.listen(3000, () => console.log('server started'));
-
-
   // BUG: CORS issue with openAI call
   // Access to fetch at 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-IyCMwj0RWWvhDkV14UomDgos/user-9EsOmgI1HmI0SzBiND2o5SSU/img-h5DVe19ZoJWs0zIUikVAWkjZ.png?st=2023-03-03T23%3A23%3A26Z&se=2023-03-04T01%3A23%3A26Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-04T00%3A14%3A50Z&ske=2023-03-05T00%3A14%3A50Z&sks=b&skv=2021-08-06&sig=d4SHwtN5Zog%2BWlQ1VHoc7ixYptIUmUNpUQoilqj8K%2Bo%3D' from origin 'http://localhost:3001' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
   const getImageFile = async (url, filename) => {
@@ -124,7 +100,7 @@ const GetFakeArt = ({handleGenerateArt}) => {
     console.log(filename)
     const file = await axios.get(url)
     // get result URL
-    fetch(url)
+    proxy.fetch(url)
     .then((res) => {
       // turn it into a blob
       res.blob()
