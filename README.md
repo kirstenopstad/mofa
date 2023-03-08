@@ -159,6 +159,9 @@ __User stories:__
 |3/5|4:52p| Add modal styling to login/out feat. to hold users' place while logging in |
 |3/6|8:30a| Add mkcert to make https://local... match OpenAI image URL |
 |3/6|10:20a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
+|3/7|10:20a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
+|3/7|4:45p| Multiple attempts at proxying & splitting double API call unsuccesful |
+|3/8|10:16a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
 <!-- |date|time|data13| -->
 
 ### Hour Totals
@@ -168,7 +171,9 @@ __User stories:__
 |2/24|8 hrs| Add conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
 |2/25|5 hrs| Add voting, authentication & authorization for add title + vote |
 |3/3|8 hrs| Add basic styling for exh components & add Firebase storage functionality |
-|3/5|8 hours| Try CORS workaround w. proxy, add funct. user can only vote once per title, style login as modal |
+|3/5|8 hrs| Try CORS workaround w. proxy, add funct. user can only vote once per title, style login as modal |
+|3/7|8 hrs| Troubleshoot and research CORS issue |
+|3/8|8 hrs| Add routes and contant for static pages |
 <!-- |date|hour|data13| -->
 
 ### Next Steps
