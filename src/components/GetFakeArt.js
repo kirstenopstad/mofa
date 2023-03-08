@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { PropTypes } from "prop-types";
-// import {http} from 'http-proxy';
-// var httpProxy = require('http-proxy'); 
+import axios from "axios";
+// requirements for proxy
+import { app, proxy } from './../firebaseProxy'
+
 
 // calls the DALLE•2 API and adds one artwork to db
-
 const GetFakeArt = ({handleGenerateArt}) => {  
   const [error, setError]= useState(null);
   const [isLoaded, setIsLoaded]= useState(false);
@@ -37,7 +37,6 @@ const GetFakeArt = ({handleGenerateArt}) => {
         bodyParameters,
         config
         )
-        
         const resURL =  res.data.data[0].url;
         setIsLoaded(true);
         // get fake art URL
@@ -83,6 +82,7 @@ const GetFakeArt = ({handleGenerateArt}) => {
     return filename + filetype
   }
   
+  // add art data to db
   const addArtDataToDb = (url, fileRef, prompt) => {
     handleGenerateArt({
       url: url,
@@ -91,41 +91,27 @@ const GetFakeArt = ({handleGenerateArt}) => {
       isSaved: false,
     })    
   }
-  
-  // Create proxy server
-  // httpProxy.createProxyServer({target:'http://localhost:9000'}).listen(8000); // Listen triggers the creation of the webserver 
 
-  // Create target server
-  // http.createServer(function (req, res) {
-  //   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  //   res.write('request successfully proxied!' + '\n' + JSON.stringify(req.headers, true, 2));
-  //   res.end();
-  // }).listen(9000);
-
-  
   // BUG: CORS issue with openAI call
   // Access to fetch at 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-IyCMwj0RWWvhDkV14UomDgos/user-9EsOmgI1HmI0SzBiND2o5SSU/img-h5DVe19ZoJWs0zIUikVAWkjZ.png?st=2023-03-03T23%3A23%3A26Z&se=2023-03-04T01%3A23%3A26Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-04T00%3A14%3A50Z&ske=2023-03-05T00%3A14%3A50Z&sks=b&skv=2021-08-06&sig=d4SHwtN5Zog%2BWlQ1VHoc7ixYptIUmUNpUQoilqj8K%2Bo%3D' from origin 'http://localhost:3001' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
   const getImageFile = async (url, filename) => {
     console.log("getting file")
     console.log(url)
     console.log(filename)
-    const file = await axios.get(url, {
-      proxy: false
-      
+    const file = await axios.get(url)
+    // get result URL
+    proxy.fetch(url)
+    .then((res) => {
+      // turn it into a blob
+      res.blob()
+      .then((blob) => {
+        // turn it into a file
+        const file = new File([blob], filename, {type: blob.type})
+        console.log(file)    
+        // uploadImageToDb(filename, file)
+        // return file 
+      })
     })
-    // // get result URL
-    // fetch(url)
-    // .then((res) => {
-    //   // turn it into a blob
-    //   res.blob()
-    //   .then((blob) => {
-    //     // turn it into a file
-    //     const file = new File([blob], filename, {type: blob.type})
-    //     console.log(file)    
-    //     // uploadImageToDb(filename, file)
-    //     // return file 
-      // })
-    // })
   }
   
   const uploadImageToDb = (refName, file) => {

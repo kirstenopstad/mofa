@@ -20,10 +20,10 @@ const Exhibit = ({exhibit, artworks, whenExhDetailClicked}) => {
   return(
       <Container>
       <Row className="exh">
-        <Col sm={8}>
+        <Col sm={6}>
           <img src={featuredArtwork.image} alt={featuredArtwork.prompt} className="exh-preview"/>
         </Col>
-        <Col sm={4} className="exh-didactic">
+        <Col sm={6} className="exh-didactic">
           <h3><b>{exhTitle}</b></h3>
           <h5><i>Ends {endDate}</i></h5>
           <p>{description}</p>

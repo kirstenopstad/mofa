@@ -31,10 +31,10 @@ const Artwork = ({ selArt, titles, whenArtworkClick }) => {
     
   return(
     <React.Fragment>
-      <Col sm={8}>
+      <Col sm={6}>
         <img src={image} alt={prompt} className="exh-preview"/>
       </Col>
-      <Col sm={4} className="exh-didactic">
+      <Col sm={6} className="exh-didactic">
         <p>{prompt}</p>
         {/* TODO: show most popular title here */}
         <h4>{mostPopTitle.title}</h4>
