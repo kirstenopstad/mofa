@@ -156,39 +156,40 @@ const ArtworkDetail = (
         <Col sm={12}>
           <img onClick={() => onClose()} src={closeIcon} className="close-icon"/>
         </Col>
-    
-        <img src={image} alt="prompt" className="artwork-detail"/>
+        {/* <div className="artwork-detail"> */}
+          <img src={image} alt="prompt" id="artwork-detail"/>
+        {/* </div> */}
         <h4>{mostPopTitle.title}</h4>
         
         <Col>
-        {errorMessage} {errorLink}
-        <ListGroup variant="flush">
-            {selTitles.map((title) =>
-              <ListGroup.Item  key={title.id}>
-                <Row className="title-entry">
+            {errorMessage} {errorLink}
+            <ListGroup variant="flush">
+                {selTitles.map((title) =>
+                  <ListGroup.Item  key={title.id}>
+                    <Row className="title-entry">
+                      <Col xs="auto">
+                        <img onClick={() => handleUpVote(title)} src={upVoteIcon} alt="up vote"/>
+                        <img onClick={() => handleDownVote(title)} src={downVoteIcon} alt="down vote"/>
+                      </Col>
+                      <Col xs="auto">{title.title} </Col>
+                      <Col xs="auto">{title.votes} votes</Col>
+                    </Row>
+                    </ListGroup.Item>
+                )}
+              </ListGroup>
+              <Form onSubmit={handleTitleSubmission} className="title-form">
+                <Row className="align-items-center">
                   <Col xs="auto">
-                    <img onClick={() => handleUpVote(title)} src={upVoteIcon} alt="up vote"/>
-                    <img onClick={() => handleDownVote(title)} src={downVoteIcon} alt="down vote"/>
+                    <Form.Label className="mb-2">Add Title</Form.Label>
                   </Col>
-                  <Col xs="auto">{title.title} </Col>
-                  <Col xs="auto">{title.votes} votes</Col>
+                  <Col xs="auto">
+                    <Form.Control className="mb-2" type="text" name='title' placeholder={inputPlaceholder} />
+                  </Col>
+                  <Col xs="auto">
+                    <Button  className="mb-2" variant="dark" type="submit">Submit</Button>
+                  </Col>
                 </Row>
-                </ListGroup.Item>
-            )}
-          </ListGroup>
-          <Form onSubmit={handleTitleSubmission} className="title-form">
-            <Row className="align-items-center">
-              <Col xs="auto">
-                <Form.Label className="mb-2">Add Title</Form.Label>
-              </Col>
-              <Col xs="auto">
-                <Form.Control className="mb-2" type="text" name='title' placeholder={inputPlaceholder} />
-              </Col>
-              <Col xs="auto">
-                <Button  className="mb-2" variant="dark" type="submit">Submit</Button>
-              </Col>
-            </Row>
-          </Form>
+              </Form>
         </Col>
       </Row>
       </Container>
