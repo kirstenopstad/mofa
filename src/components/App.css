@@ -135,14 +135,8 @@ p,li {
   min-height: 100vh;
 }
 
-.plan-visit {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
 .plan-visit p {
-  font-size: small;
+  font-size: 14px;
 }
 
 .store-img {
