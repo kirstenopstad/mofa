@@ -2,15 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
-// calls the DALLE•2 API and adds one artwork to db
+// calls the NYT API and adds one test image to storage
 
 const GetFakeNews = () => {
   const [error, setError]= useState(null);
   const [isLoaded, setIsLoaded]= useState(false);
-  const [isUploaded, setIsUploaded]= useState(false);
   const [fakeArtURL, setFakeArtURL]= useState("");
-  const [fakeArtRef, setFakeArtRef]= useState(null);
-  const [fakeArtFile, setFakeArtFile]= useState(null);
 
   // axios getArt call using async / await
   // TODO: update with art, using NYT to save calls
