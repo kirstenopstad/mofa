@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "react-bootstrap/Button"
 import Carousel from 'react-bootstrap/Carousel';
 import about from "./../img/about.png"
@@ -6,7 +6,17 @@ import about1 from "./../img/about1.png"
 import about2 from "./../img/about2.png"
 
 const About = () => {
+  const [voteResponse, setVoteResponse] = useState(null)
   const prompt = "a photo of an entrance to a museum branded with the word MoFA"
+
+  const handleYesClick = () => {
+    console.log("made it")
+    setVoteResponse(`Thanks! I appreaciate it.`)
+  }
+  const handleNoClick = () => {
+    setVoteResponse(`Hey, thanks for your honesty.`)
+  }
+
   return(
     <div className="about">
       <Carousel>
@@ -52,8 +62,9 @@ const About = () => {
           MoFA is for folks interested in the intersections of art, creativity and technology. 
           <br />
           It's for you! Do you like it? 
-          <Button variant="outline-dark" size="sm">yes</Button>
-          <Button variant="outline-dark" size="sm">no</Button>
+          <Button variant="outline-dark" size="sm" onClick={handleYesClick}>yes</Button>
+          <Button variant="outline-dark" size="sm" onClick={handleNoClick}>no</Button>
+          {` `}<i>{voteResponse}</i>
         </p>
       </div>
     </div>
