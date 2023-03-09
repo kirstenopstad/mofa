@@ -126,8 +126,8 @@ __Summary__
 |3/7|8 hrs| Troubleshoot and research CORS issue |
 |3/8|8 hrs| Add routes, content, and styling for static pages |
 |3/9|2 hrs| Update documentation for pitch |
-<!-- |date|hour|data13| -->
 | |55 hrs| __Total To-Date__|
+<!-- |date|hour|data13| -->
 
 __Time Log__
 |Date |Time  | Note|
