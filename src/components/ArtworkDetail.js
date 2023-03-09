@@ -71,11 +71,9 @@ const ArtworkDetail = (
       setErrorLink(<Button variant="outline-dark" onClick={onLoginClick}>Login</Button>)
     } else {
       const userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
-      // check if user has not already voted on this title
-      if (!validateVote(userVotesToUpdate, title)) {
-        setErrorMessage("You may only vote once per title.")
-        setErrorLink(null)
-      } else {
+      // if user is voting for the first time, vote is valid by default
+      // the || validates a vote if the user's already voted
+      if (userVotesToUpdate === undefined || validateVote(userVotesToUpdate, title)) {
         onVote({
           ...title,
           votes: title.votes + 1
@@ -84,9 +82,12 @@ const ArtworkDetail = (
         handleLogUserVote(title)
         // reset error message
         setErrorMessage(null)
+      } else {
+        // check if user has not already voted on this title
+        setErrorMessage("You may only vote once per title.")
+        setErrorLink(null)
       }
     }
-    
   }
   
   const handleDownVote = (title) => {
@@ -96,19 +97,21 @@ const ArtworkDetail = (
       setErrorLink(<Button variant="outline-dark" onClick={onLoginClick}>Login</Button>)
     } else {
       const userVotesToUpdate = userVotes.filter(u => u.userId === auth.currentUser.uid)[0]
-      if (!validateVote(userVotesToUpdate, title)) {
-        // check if user has not already voted on this title
-        setErrorMessage("You may only vote once per title.")
-        setErrorLink(null)
-      } else {
+      // if user is voting for the first time, vote is valid by default
+      // the || validates a vote if the user's already voted
+      if (userVotesToUpdate === undefined || validateVote(userVotesToUpdate, title)) {
         onVote({
           ...title,
-          votes: title.votes - 1 
+          votes: title.votes - 1
         })
         // log title to userVotes
         handleLogUserVote(title)
         // reset error message
         setErrorMessage(null)
+      } else {
+        // check if user has not already voted on this title
+        setErrorMessage("You may only vote once per title.")
+        setErrorLink(null)
       }
     }
   }

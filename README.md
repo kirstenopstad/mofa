@@ -33,16 +33,6 @@ __User stories:__
 * ✅ Users can add title/comment to AI-generated artwork
 * ✅ Users can  upvote/downvote titles/comments of AI-generated artwork
 
-Additionally, code will be reviewed for the following objectives:
-
-1. Application compiles and runs without error, and warnings in the DevTools console are resolved.
-2. Functional and class components are used correctly.
-3. Application effectively uses local and shared state.
-4. Props are used correctly and always include PropTypes.
-5. README includes an accurate representation of the application's component tree.
-6. Project is in a polished, portfolio-quality state.
-7. The prompt’s required functionality and baseline project requirements are in place by the deadline.
-
 ### Further Exploration (Stretch Goals)
 
 __User stories:__
@@ -80,7 +70,7 @@ __User stories:__
 
 6. ✅ Add Authentication
 7. ✅ Add Authorization (title / vote)
-8. Style to match mockup
+8. ✅ Style to match mockup
 
 ![Wireframe Mockup](./src/img/wireframe.png)
 
@@ -104,14 +94,14 @@ __User stories:__
 ### __Stretch Goals__
 1. Style front end to match design norms for reference museums 
 2. ✅ Handle user login & registration
-  * Add functionality so users may only vote once per work
-3. Ensure responsive design functionality across devices
+  *  ✅ Add functionality so users may only vote once per work
+3.  ✅ Ensure responsive design functionality across devices
 4. Gather user feedback
 5. Incorporate user feedback
 6. Publish hosted site
 7. Implement CI/CD (continuous integration and continuous delivery) with github Actions
 8. Create functionality automatically generate new prompts for DALLE•2
-9. Use app to call DALL•E API
+9. ✅ Use app to call DALL•E API
 10. Use Firebase to save .png from URL and store in Google cloud
 
 ### Research & Planning Log
@@ -161,7 +151,12 @@ __User stories:__
 |3/6|10:20a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
 |3/7|10:20a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
 |3/7|4:45p| Multiple attempts at proxying & splitting double API call unsuccesful |
-|3/8|10:16a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
+|3/8|10:16a| Add routes for static pages|
+|3/8|11:00a| Add content to Visit and Store|
+|3/8|12:00p| Add content to Membership and About|
+|3/8|2:00p| Add content to FAQs and Subscribe|
+|3/8|3:45p| Style static pages for consistency|
+|3/8|5:00p| Make sign in modal avail sitewide |
 <!-- |date|time|data13| -->
 
 ### Hour Totals
@@ -173,13 +168,14 @@ __User stories:__
 |3/3|8 hrs| Add basic styling for exh components & add Firebase storage functionality |
 |3/5|8 hrs| Try CORS workaround w. proxy, add funct. user can only vote once per title, style login as modal |
 |3/7|8 hrs| Troubleshoot and research CORS issue |
-|3/8|8 hrs| Add routes and contant for static pages |
+|3/8|8 hrs| Add routes, content, and styling for static pages |
+| |53 hrs| __Total To-Date__|
 <!-- |date|hour|data13| -->
 
 ### Next Steps
-1. Checkout new feature branch 
-2. Troubleshoot CORS issue in GetFakeArt
-3. Refactor database to include ref to image file in storage
+1. Add functionality to Subscribe, Membership and Store buttons
+2. Experiement with base64 response from OpenAI
+2. Add Prodigi integration
 
 ### Project Links
 * [Whiteboard](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0)

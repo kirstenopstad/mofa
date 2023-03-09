@@ -11,7 +11,7 @@ const About = () => {
 
   const handleYesClick = () => {
     console.log("made it")
-    setVoteResponse(`Thanks! I appreaciate it.`)
+    setVoteResponse(`Thanks! I appreciate it.`)
   }
   const handleNoClick = () => {
     setVoteResponse(`Hey, thanks for your honesty.`)
@@ -55,7 +55,7 @@ const About = () => {
         </ul>
         <h2>What Does it Do?</h2>
         <p>
-          MoFa shows visitors works of curated fake art and invites to engage with the artwork by offering the ability to title artworks and vote on which titlethey like best.
+          MoFa shows visitors works of curated fake art and invites to engage with the artwork by offering the ability to title artworks and vote on which title they like best.
         </p>
         <h2>Who is it For?</h2>
         <p>
