@@ -1,30 +1,33 @@
-# Museum of Fake Art
+# [MoFA: the Museum of Fake Art](https://museum-of-fake-art.web.app)
 
 #### By Kirsten Opstad
 
-#### A web app that <!-- generates, --> displays and exhibits fake art
-
-<!-- #### [Check out the live site](https://kirstenopstad.github.io/local-business/)! -->
-
-## Technologies Used
-
-* React
-* JavaScript
-* Bootstrap
-* HTML
-* CSS
-* webpack
-* Node.js
-* Firebase
-
+#### A web app that exhibits AI-generated artwork
+***
+![Wireframe Mockup](./src/img/gen_images/img-vujGHIheyP5efqoS37Urs2w3.png)
+<i>Fake art, generated from the prompt: "a poker game of fish, Lyonel Feininger eqsue"</i>
+*** 
 ## Description
 
 Recreate the user experience of visiting a art musuem website with completely AI-generated artwork. By presenting AI-generated artwork in a format typically reserved for fine (real) art, the application intends to provoke conversation around the following questions: 
 * what makes art "real" or "fake"?
 * is it possible to have a "real" human experiences with "fake" art?
 * what are the social / cultural / human implications of the development of generative AI?
+*** 
+## Technologies Used
 
-### Objectives (MVP)
+* JavaScript
+* React
+* Firebase
+* webpack
+* Node.js
+* Axios
+* Bootstrap
+* HTML
+* CSS
+
+***
+### __Objectives__ (MVP)
 
 The application should have the following functionality:
 
@@ -33,21 +36,41 @@ __User stories:__
 * ✅ Users can add title/comment to AI-generated artwork
 * ✅ Users can  upvote/downvote titles/comments of AI-generated artwork
 
-### Further Exploration (Stretch Goals)
+### __Further Exploration__ (Stretch Goals)
 
 __User stories:__
 * ✅ Users can register and login
 * ✅ Users may only vote once per AI-generated artwork
 
+***
 ## Process 
 
-<!-- ✅  -->
+### __Research & Planning__
+
+![Roadmap](./src/img/roadmap.png)
+
+__Initial Component Diagram__
+[![Wireframe Component Hierarchy](./src/img/wireframe0.png)](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=0%3A1&t=DYXHI0F3lA0hwwPY-1)
+
+__Basic Wireframe by Component__
+![Wireframe Mockup](./src/img/wireframe.png)
+
+__Data Organization__
+![Data Organization](./src/img/data_structure.png)
+
+__Hierarchical Component Drawing__
+![Component Drawing](./src/img/component_diagram.png)
+
+__Design Research__
+[![Design Research](./src/img/design_research.png)]((https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=0%3A1&t=DYXHI0F3lA0hwwPY-1))
+
+<!-- ### __Big Picture__
+![Big Picture](./src/img/big_picture.png) -->
+
+### __Implementation__
 1. ✅ Create component drawing
-
-[![Component Drawing](./src/img/component_diagram.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
-
-2. ✅ Establish Component Hierarchy:
-    * App.js
+2. ✅ Establish Component Hierarchy
+    <!-- * App.js
       * Header.js
       * PlanVisit.js
       * ExhControl.js 
@@ -56,56 +79,56 @@ __User stories:__
         * ExhDetail.js - displays all art in one exhibition
           * Artwork.js
         * ArtworkDetail.js 
-      * Footer.js
-
-[![Wireframe Component Hierarchy](./src/img/wireframe0.png)](https://www.figma.com/file/9yZdrlZDInV6346toTdG2Z/CoffeeShop?node-id=0%3A1&t=SaS3WUYroyADmYHv-1)
-
+      * Footer.js -->
 3. ✅ Build Static Components
 4. ✅ Add State
-  * Local State conditional rendering
-  * Shared State 
 5. ✅ Add Firebase to store data
-
-![Data Organization](./src/img/data_structure.png)
-
 6. ✅ Add Authentication
 7. ✅ Add Authorization (title / vote)
 8. ✅ Style to match mockup
-
-![Wireframe Mockup](./src/img/wireframe.png)
-
-
-### __Roadmap__
-![Roadmap](./src/img/roadmap.png)
-### __Big Picture__
-![Big Picture](./src/img/big_picture.png)
 
 <!-- [x] Screenshots
 
 ![Screenshots](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.03bZmDGXaBhBYyxxp3Ls3gHaEA%26pid%3DApi&f=1&ipt=e980d57210242747a51c41421e1f09a6de3b1fdaeaadd297496787bb64e80c88&ipo=images) -->
 
 <!-- [Link to operational site](http://www.kirstenopstad.github.com/<REPOSITORY NAME>) -->
-
+***
 ### __Goals__
 1. ✅ Meet MVP (Minimum Viable Product)
 2. ✅ Implement at least one stretch goal
-3. Create thorough documentation of process
+3. ✅ Create thorough documentation of process
 
 ### __Stretch Goals__
 1. Style front end to match design norms for reference museums 
 2. ✅ Handle user login & registration
-  *  ✅ Add functionality so users may only vote once per work
+    * ✅ Add functionality so users may only vote once per work
 3.  ✅ Ensure responsive design functionality across devices
-4. Gather user feedback
+4. 📌 Gather user feedback
 5. Incorporate user feedback
-6. Publish hosted site
+6. ✅ Publish hosted site
 7. Implement CI/CD (continuous integration and continuous delivery) with github Actions
 8. Create functionality automatically generate new prompts for DALLE•2
 9. ✅ Use app to call DALL•E API
-10. Use Firebase to save .png from URL and store in Google cloud
+10. 📌 Use Firebase to save .png from URL and store in Google cloud
 
-### Research & Planning Log
+***
+ 
+### __Research, Planning & Implementation Log__
 
+__Summary__
+|Date |Hours  | Note|
+--- | --- | ---|
+|2/17|8 hrs| Project planning, research and basic component creation|
+|2/24|8 hrs| Add conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
+|2/25|5 hrs| Add voting, authentication & authorization for add title + vote |
+|3/3|8 hrs| Add basic styling for exh components & add Firebase storage functionality |
+|3/5|8 hrs| Try CORS workaround w. proxy, add funct. user can only vote once per title, style login as modal |
+|3/7|8 hrs| Troubleshoot and research CORS issue |
+|3/8|8 hrs| Add routes, content, and styling for static pages |
+| |53 hrs| __Total To-Date__|
+<!-- |date|hour|data13| -->
+
+__Time Log__
 |Date |Time  | Note|
 --- | --- | ---|
 |2/17|8:32a | Setup documentation boilerplate (README.md & capstone-proposal)|
@@ -149,7 +172,7 @@ __User stories:__
 |3/5|4:52p| Add modal styling to login/out feat. to hold users' place while logging in |
 |3/6|8:30a| Add mkcert to make https://local... match OpenAI image URL |
 |3/6|10:20a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
-|3/7|10:20a| GET call to OpenAI url from Postman is successful, researching setting up proxy|
+|3/7|10:20a| Continue researching setting up proxy|
 |3/7|4:45p| Multiple attempts at proxying & splitting double API call unsuccesful |
 |3/8|10:16a| Add routes for static pages|
 |3/8|11:00a| Add content to Visit and Store|
@@ -159,18 +182,7 @@ __User stories:__
 |3/8|5:00p| Make sign in modal avail sitewide |
 <!-- |date|time|data13| -->
 
-### Hour Totals
-|Date |Hours  | Note|
---- | --- | ---|
-|2/17|8 hrs| Project planning, research and basic component creation|
-|2/24|8 hrs| Add conditional rendering, state, seeded data, Firebase & basic styling w/Bootstrap |
-|2/25|5 hrs| Add voting, authentication & authorization for add title + vote |
-|3/3|8 hrs| Add basic styling for exh components & add Firebase storage functionality |
-|3/5|8 hrs| Try CORS workaround w. proxy, add funct. user can only vote once per title, style login as modal |
-|3/7|8 hrs| Troubleshoot and research CORS issue |
-|3/8|8 hrs| Add routes, content, and styling for static pages |
-| |53 hrs| __Total To-Date__|
-<!-- |date|hour|data13| -->
+*** 
 
 ### Next Steps
 1. Add functionality to Subscribe, Membership and Store buttons
@@ -178,8 +190,11 @@ __User stories:__
 2. Add Prodigi integration
 
 ### Project Links
-* [Whiteboard](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0)
-* [Google Drive](https://drive.google.com/drive/folders/1rxBeCx7N13FGsMKBLVsTgdofXTlSvd4D?usp=sharing)
+* [Whiteboard](https://www.figma.com/file/qwZdK8mH6mivu1HjC5udke/MOFA?node-id=3%3A298&t=OPUkQpOJpVfySjyu-0) – Figma document where visual brainstorming for MoFA happens
+* [Google Drive](https://drive.google.com/drive/folders/1rxBeCx7N13FGsMKBLVsTgdofXTlSvd4D?usp=sharing) – where design research images live 
+* [Live Site](https://museum-of-fake-art.web.app/faq) – visit, login & add a title of your own!
+
+***
 
 ## Sources
 ### __Subject Matter__
@@ -190,6 +205,8 @@ __User stories:__
 * [Guggenheim](https://www.guggenheim.org/)
 ### __Technology__
 * [Open AI DALL•E 2](https://openai.com/dall-e-2/)
+
+***
 ## Setup/Installation Requirements
 
 * Clone this repo to your workspace.
@@ -202,6 +219,7 @@ $ npm install
 ```
 $ npm run start
 ```
+***
 
 ## Known Bugs
 
@@ -209,6 +227,8 @@ $ npm run start
   * BUG: _A brief description of the bug_
   * FIX: _Suggestion for solution (if you have one!)_
   * If you'd like to be credited, please also include your **_github user profile link_**
+
+*** 
 
 ## License
 
