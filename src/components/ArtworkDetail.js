@@ -156,8 +156,9 @@ const ArtworkDetail = (
         <Col sm={12}>
           <img onClick={() => onClose()} src={closeIcon} className="close-icon"/>
         </Col>
-    
-        <img src={image} alt="prompt" className="artwork-detail"/>
+        {/* <div className="artwork-detail"> */}
+          <img src={image} alt="prompt" id="artwork-detail"/>
+        {/* </div> */}
         <h4>{mostPopTitle.title}</h4>
         
         <Col>

@@ -11,7 +11,6 @@ import Logout from './Logout';
 import GetFakeArt from './GetFakeArt';
 import GetFakeNews from './GetFakeNews';
 import Header from './Header';
-import PlanVisit from './PlanVisit';
 import Visit from './Visit';
 import Store from './Store';
 import About from './About';
@@ -80,9 +79,7 @@ function App() {
 
   let main = 
     <div>
-      <PlanVisit />
       <ExhControl onLoginClick={handleShowLogin}/>
-
     </div>
   
   return (

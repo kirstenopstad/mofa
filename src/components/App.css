@@ -21,6 +21,9 @@ p,li {
   max-width: 500px;
 }
 
+.row {
+  width: inherit;
+}
 .about {
   display: flex;
   flex-direction: column;
@@ -43,8 +46,11 @@ p,li {
   align-items: center;
 }
 
-.artwork-detail {
-  width: 90vw;
+#artwork-detail {
+  max-width: 90vh;
+  display: block;
+  margin:auto;
+  padding: 30px;
 }
 
 .close-icon {
@@ -71,9 +77,6 @@ p,li {
 
 .exh-preview {
   width: 100%;
-  /* TODO: make art appear rectangular */
-  /* margin: 0 -20% 0 -20%; */
-  /* background-color: gainsboro; */
 }
 
 .faq {

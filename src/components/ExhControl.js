@@ -3,6 +3,8 @@ import React, {useEffect, useState} from "react";
 import ArtworkDetail from "./ArtworkDetail";
 import ExhDetail from "./ExhDetail";
 import ExhList from "./ExhList";
+import PlanVisit from "./PlanVisit";
+
 import { db } from './../firebase'
 import { collection, doc, addDoc, updateDoc, onSnapshot } from "firebase/firestore";
 import { exhibitions, artworks, titles } from './../ExhSeedData'
@@ -133,11 +135,15 @@ const ExhControl = ({onLoginClick}) => {
   
   let content = null;
   if (showExhList) {
-    content = <ExhList 
-                exh={exhList} 
-                art={artList} 
-                titles={titleList} 
-                onExhDetailClick={handleSelectExhibition}/>
+    content = <React.Fragment>
+                <PlanVisit />
+                <ExhList 
+                  exh={exhList} 
+                  art={artList} 
+                  titles={titleList} 
+                  onExhDetailClick={handleSelectExhibition}/>
+  
+              </React.Fragment>
   } else if (!showExhList && showExhDetail) {
     content = <ExhDetail 
                 exh={selectedExh} 
