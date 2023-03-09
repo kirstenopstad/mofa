@@ -10,18 +10,12 @@ const Footer = ({onLoginClick, onLogoutClick}) => {
   
   const footerNav = 
         <Nav defaultActiveKey="/home" className="flex-column">
-          {/* <Nav.Link as="li"> */}
             <Link to="/about" className="footer-nav-item">About MOFA</Link>
-          {/* </Nav.Link> */}
-          {/* <Nav.Link as="li"> */}
             <Link to="/faq" className="footer-nav-item">FAQ</Link>
-          {/* </Nav.Link> */}
-          {/* <Nav.Link as="li"> */}
             <Link to="/subscribe" className="footer-nav-item">Subscribe</Link>
-          {/* </Nav.Link> */}
         </Nav>
 
-  const footerBrand = <p>Built by KO</p>
+  const footerBrand = <a href="https://built-by-ko.web.app/" className="footer-nav-item">Built by KO</a>
   
   let loginButtonText = "";
   if (auth.currentUser === null) {
