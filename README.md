@@ -9,7 +9,7 @@
 *** 
 ## Description
 
-Recreate the user experience of visiting a art musuem website with completely AI-generated artwork. By presenting AI-generated artwork in a format typically reserved for fine (real) art, the application intends to provoke conversation around the following questions: 
+Recreate the user experience of visiting an art musuem website with completely AI-generated artwork. By presenting AI-generated artwork in a format typically reserved for fine (real) art, the application intends to provoke conversation around the following questions: 
 * what makes art "real" or "fake"?
 * is it possible to have a "real" human experiences with "fake" art?
 * what are the social / cultural / human implications of the development of generative AI?
@@ -125,8 +125,9 @@ __Summary__
 |3/5|8 hrs| Try CORS workaround w. proxy, add funct. user can only vote once per title, style login as modal |
 |3/7|8 hrs| Troubleshoot and research CORS issue |
 |3/8|8 hrs| Add routes, content, and styling for static pages |
-| |53 hrs| __Total To-Date__|
+|3/9|2 hrs| Update documentation for pitch |
 <!-- |date|hour|data13| -->
+| |55 hrs| __Total To-Date__|
 
 __Time Log__
 |Date |Time  | Note|
@@ -180,6 +181,8 @@ __Time Log__
 |3/8|2:00p| Add content to FAQs and Subscribe|
 |3/8|3:45p| Style static pages for consistency|
 |3/8|5:00p| Make sign in modal avail sitewide |
+|3/8|8:30p| Deploy site & send to small user group to test |
+|3/9|10:31a| Update process images, links & organization of documentation |
 <!-- |date|time|data13| -->
 
 *** 
