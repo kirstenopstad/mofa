@@ -39,7 +39,7 @@ const About = () => {
           MoFA (the Museum of Fake Art) is a culminating project demonstrating knowledge of full stack development. The project integrates personal interests in art, creativity and criticism.
         </p>
         <p>
-          MoFA seeks to recreate the user experience of visiting a art musuem website with completely AI-generated artwork. By presenting AI-generated artwork in a format typically reserved for fine art, the application intends to provoke conversation around the following questions:
+          MoFA seeks to recreate the user experience of visiting an art museum website with completely AI-generated artwork. By presenting AI-generated artwork in a format typically reserved for fine art, the application intends to provoke conversation around the following questions:
         </p>
         <ul>
           <li>
@@ -55,7 +55,7 @@ const About = () => {
         </ul>
         <h2>What Does it Do?</h2>
         <p>
-          MoFa shows visitors works of curated fake art and invites to engage with the artwork by offering the ability to title artworks and vote on which title they like best.
+          MoFa shows visitors works of curated fake art and invites them to engage with the artwork by offering the ability to title artworks and vote on which title they like best.
         </p>
         <h2>Who is it For?</h2>
         <p>

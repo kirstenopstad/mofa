@@ -9,7 +9,7 @@
 *** 
 ## Description
 
-Recreate the user experience of visiting an art musuem website with completely AI-generated artwork. By presenting AI-generated artwork in a format typically reserved for fine (real) art, the application intends to provoke conversation around the following questions: 
+Recreate the user experience of visiting an art museum website with completely AI-generated artwork. By presenting AI-generated artwork in a format typically reserved for fine (real) art, the application intends to provoke conversation around the following questions: 
 * what makes art "real" or "fake"?
 * is it possible to have a "real" human experiences with "fake" art?
 * what are the social / cultural / human implications of the development of generative AI?
