@@ -17,7 +17,7 @@ const  faq = [
   },
   {
     question: `Who owns the fake artwork?`,
-    answer: `Great question! According to the OpenAI documentataion in March 2023, I think I do. But should I?`
+    answer: `Great question! According to the OpenAI documentation in March 2023, I think I do. But should I?`
   },
   {
     question: `Who owns the code?`,

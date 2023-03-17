@@ -20,7 +20,7 @@ const exhibitions = [
     id: 1
   },
   { exhTitle: `Almost Expressionists`,
-    endDate: `March 15`,
+    endDate: `March 31`,
     description: `Expressionist landscapes`,
     id: 2
   },
