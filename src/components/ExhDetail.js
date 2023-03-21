@@ -11,8 +11,6 @@ const ExhDetail = ({ exh, art, titles, onArtworkDetailClick, onClose}) => {
   // shows images connected to *this* exh only
   const filteredArtwork = art.filter(a => a.exhId === id)
 
-  let selArtTitles = null;
-
   return(
     // add seed data 
     // display all artwork in a single given exhibition
