@@ -15,7 +15,7 @@ const ExhDetail = ({ exh, art, titles, onArtworkDetailClick, onClose}) => {
     // add seed data 
     // display all artwork in a single given exhibition
     <Container>
-          <img onClick={() => onClose()} src={closeIcon} className="close-icon"/>
+          <img onClick={() => onClose()} src={closeIcon} className="close-icon" alt="close icon"/>
         <h2>{exhTitle}</h2>
         <h4><i>Ends {endDate}</i></h4>
         <p>{description}</p>
