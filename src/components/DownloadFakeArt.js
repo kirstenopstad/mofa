@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { PropTypes } from "prop-types";
 import axios from "axios";
+import React from "react";
 
 // adds one artwork to db
 
@@ -9,15 +10,13 @@ import axios from "axios";
   // deconstruct object
   const { storageRef, url } = artwork
 
-  // get artwork
-  const file = getImageFile(url, storageRef);
-  uploadImageToDb(storageRef, file);
-
+  
   const getImageFile = async (url, filename) => {
     console.log("getting file")
     console.log(url)
     console.log(filename)
     const file = await axios.get(url)
+    console.log(file)
     // get result URL
     fetch(url)
     .then((res) => {
@@ -32,22 +31,29 @@ import axios from "axios";
   }
   
   const uploadImageToDb = (refName, file) => {
-      // create root ref
-      const storage = getStorage();
-      // create db ref for incoming file
-      const imageRef = ref(storage, refName)
-      // upload file to db
-      uploadBytes(imageRef, file)
-      .then((snapshot) => {
-        console.log('it worked! go check firebase!')
-      })
-    }
-      
-    return (
-      console.log(`made it to the return`)
-      )
+    // create root ref
+    const storage = getStorage();
+    // create db ref for incoming file
+    const imageRef = ref(storage, refName)
+    // upload file to db
+    uploadBytes(imageRef, file)
+    .then((snapshot) => {
+      console.log('it worked! go check firebase!')
+    })
   }
 
+  // get artwork
+  const file = getImageFile(url, storageRef);
+  uploadImageToDb(storageRef, file);
+  
+  return (
+    <React.Fragment>
+      {console.log(`made it to the return`)}
+    
+    </React.Fragment>
+    )
+  }
+  
 
 DownloadFakeArt.propTypes = {
   artwork: PropTypes.object
