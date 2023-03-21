@@ -1,7 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore';
-import { getStorage } from "firebase/storage";
 
 const proxyConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_PROXY_API_KEY,
