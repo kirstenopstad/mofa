@@ -18,10 +18,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
-          cache: npm
-      # install & build
-      - name: Install + Build
-        run: npm ci && npm run build
+          # cache: npm
+      # install
+      - name: Install
+        run: npm ci
+      # build
+      - name: Build
+        run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
