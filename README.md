@@ -183,6 +183,7 @@ __Time Log__
 |3/8|5:00p| Make sign in modal avail sitewide |
 |3/8|8:30p| Deploy site & send to small user group to test |
 |3/9|10:31a| Update process images, links & organization of documentation |
+|3/22|11:39| Debug GitHub Actions for CI/CD – trouble accessing API key|
 <!-- |date|time|data13| -->
 
 *** 
