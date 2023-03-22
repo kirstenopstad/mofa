@@ -4,7 +4,6 @@ import { auth } from './../firebase.js'
 import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
 
 const Footer = ({onLoginClick, onLogoutClick}) => {
   

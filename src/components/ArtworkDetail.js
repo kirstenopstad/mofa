@@ -4,21 +4,19 @@ import {auth} from './../firebase.js'
 import closeIcon from './../img/icons/x-lg.svg'
 import upVoteIcon from './../img/icons/arrow-up.svg'
 import downVoteIcon from './../img/icons/arrow-down.svg'
-import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { FieldValue, arrayUnion } from "firebase/firestore";
+import { arrayUnion } from "firebase/firestore";
 
 
 const ArtworkDetail = (
   { selectedArt, titles, userVotes, onClose, onTitleSubmit, onVote, onLogFirstVote, onLogUserVote, onLoginClick }) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [errorLink, setErrorLink] = useState(null);
-  const [inputPlaceholder, setinputPlaceholder] = useState("Title");
   const { image, prompt, id } = selectedArt;
 
   // shows titles connected to *this* artwork only
@@ -154,10 +152,10 @@ const ArtworkDetail = (
       <Container>
       <Row>
         <Col sm={12}>
-          <img onClick={() => onClose()} src={closeIcon} className="close-icon"/>
+          <img onClick={() => onClose()} src={closeIcon} className="close-icon" alt="close icon"/>
         </Col>
         {/* <div className="artwork-detail"> */}
-          <img src={image} alt="prompt" id="artwork-detail"/>
+          <img src={image} alt={prompt} id="artwork-detail"/>
         {/* </div> */}
         <h4>{mostPopTitle.title}</h4>
         
@@ -183,7 +181,7 @@ const ArtworkDetail = (
                     <Form.Label className="mb-2">Add Title</Form.Label>
                   </Col>
                   <Col xs="auto">
-                    <Form.Control className="mb-2" type="text" name='title' placeholder={inputPlaceholder} />
+                    <Form.Control className="mb-2" type="text" name='title' placeholder="Title" />
                   </Col>
                   <Col xs="auto">
                     <Button  className="mb-2" variant="dark" type="submit">Submit</Button>

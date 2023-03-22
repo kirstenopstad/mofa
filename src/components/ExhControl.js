@@ -13,15 +13,16 @@ const ExhControl = ({onLoginClick}) => {
   // TODO: add props for on Login Click
 
   // lists
-  const [exhList, setExhList] = useState(exhibitions);
-  const [artList, setArtList] = useState(artworks);
+  // TODO: reinstate exhList & artList in hooks once cloud storage in place
+  // const [exhList, setExhList] = useState(exhibitions);
+  // const [artList, setArtList] = useState(artworks);
   const [titleList, setTitleList] = useState(titles);
   const [votesList, setVotesList] = useState(null);
 
   // selected
   // TODO: update this so it's dynamically setting obj
   const [selectedExh, setSelectedExh] = useState({});
-  const [selectedArt, setSelectedArt] = useState(artList[0]);
+  const [selectedArt, setSelectedArt] = useState(artworks[0]);
 
   // local state for conditional rendering
   const [showExhList, setShowExhList] = useState(true);
@@ -76,7 +77,7 @@ const ExhControl = ({onLoginClick}) => {
   // select functionality
   const handleSelectExhibition = (id) => {
     // go find selection
-    const selectedExh = exhList.filter(e => e.id === id)[0];
+    const selectedExh = exhibitions.filter(e => e.id === id)[0];
     // set selected
     setSelectedExh(selectedExh)
     // display exh detail
@@ -87,7 +88,7 @@ const ExhControl = ({onLoginClick}) => {
   
   const handleSelectArtwork = (id) => {
     // go find selection
-    const selectedArt = artList.filter(a => a.id === id)[0];
+    const selectedArt = artworks.filter(a => a.id === id)[0];
     // set selected
     setSelectedArt(selectedArt)
     // display detail
@@ -138,8 +139,8 @@ const ExhControl = ({onLoginClick}) => {
     content = <React.Fragment>
                 <PlanVisit />
                 <ExhList 
-                  exh={exhList} 
-                  art={artList} 
+                  exh={exhibitions} 
+                  art={artworks} 
                   titles={titleList} 
                   onExhDetailClick={handleSelectExhibition}/>
   
@@ -147,7 +148,7 @@ const ExhControl = ({onLoginClick}) => {
   } else if (!showExhList && showExhDetail) {
     content = <ExhDetail 
                 exh={selectedExh} 
-                art={artList} 
+                art={artworks} 
                 titles={titleList}
                 onArtworkDetailClick={handleSelectArtwork}
                 onClose={handleClose}/>
@@ -167,6 +168,7 @@ const ExhControl = ({onLoginClick}) => {
     // TODO: add logic to display all exhibits or just one
     <React.Fragment>
       {content}
+      {console.log(error)}
     </React.Fragment>
   );
 }

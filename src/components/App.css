@@ -71,8 +71,8 @@ p,li {
 .exh-didactic {
   display: flex;
   flex-direction: column;
-  justify-content: end;
-  align-items: start;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .exh-preview {

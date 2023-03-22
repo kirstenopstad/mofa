@@ -4,7 +4,6 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { PropTypes } from "prop-types";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { onLog } from "firebase/app";
 
 const Register = ({onRegister, onLogin}) => {
   const [signUpSuccess, setSignUpSuccess] = useState(null);

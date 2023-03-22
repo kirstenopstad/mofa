@@ -26,6 +26,7 @@ const GetFakeNews = () => {
       console.log(refName)
       // setFakeArtRef(refName)
       const file = getImageFile(resURL, refName)
+      console.log(file);
 
       
       } catch (error) {
@@ -97,6 +98,7 @@ const GetFakeNews = () => {
       useEffect(() => {
         // get fake artwork & add to db
         getArt();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [])
 
   // display to check
@@ -107,7 +109,7 @@ const GetFakeNews = () => {
   } else {
     return (
       <div>
-        <img src={fakeArtURL} />
+        <img src={fakeArtURL} alt="fake news"/>
         <p>This image has now been added to the datebase.</p>
       </div>
     )

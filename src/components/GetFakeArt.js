@@ -3,7 +3,7 @@ import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { PropTypes } from "prop-types";
 import axios from "axios";
 // requirements for proxy
-import { app, proxy } from './../firebaseProxy'
+import { proxy } from './../firebaseProxy'
 
 
 // calls the DALLE•2 API and adds one artwork to db
@@ -99,6 +99,7 @@ const GetFakeArt = ({handleGenerateArt}) => {
     console.log(url)
     console.log(filename)
     const file = await axios.get(url)
+    console.log(file) 
     // get result URL
     proxy.fetch(url)
     .then((res) => {
@@ -108,7 +109,7 @@ const GetFakeArt = ({handleGenerateArt}) => {
         // turn it into a file
         const file = new File([blob], filename, {type: blob.type})
         console.log(file)    
-        // uploadImageToDb(filename, file)
+        uploadImageToDb(filename, file)
         // return file 
       })
     })
@@ -130,6 +131,7 @@ const GetFakeArt = ({handleGenerateArt}) => {
   useEffect(() => {
     // get fake artwork & add data to db
     getArt();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // display to check
@@ -140,7 +142,7 @@ const GetFakeArt = ({handleGenerateArt}) => {
   } else {
     return (
       <div>
-        <img src={fakeArtURL} />
+        <img src={fakeArtURL} alt="fake art"/>
         <p>This image has now been added to the datebase.</p>
       </div>
     )

@@ -85,6 +85,8 @@ function App() {
   return (
     <Router> 
       <div className='page-container'>
+        {console.log(error)}
+        {console.log(getUnsavedArt)}
         <Header/>
         <Container className="content-wrap">
         <Routes> 
@@ -106,7 +108,6 @@ function App() {
         </Modal>
         </Container>
         <Footer onLoginClick={handleShowLogin} onLogoutClick={handleLogout} onClose={handleCloseLogin}/>
-
       </div>
     </Router>
   );

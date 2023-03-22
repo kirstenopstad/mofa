@@ -1,5 +1,4 @@
 import React from "react";
-import Artwork from "./Artwork";
 import Exhibit from "./Exhibit";
 import { PropTypes } from "prop-types";
 
